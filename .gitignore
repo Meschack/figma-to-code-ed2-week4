@@ -20,6 +20,13 @@
 .DS_Store
 *.pem
 
+#husky config
+.husky/pre-commit
+
+#makeFile Config 
+/Makefile 
+
+
 # debug
 npm-debug.log*
 yarn-debug.log*
@@ -27,7 +34,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
-
+.env
 # vercel
 .vercel
 
