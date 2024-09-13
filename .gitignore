@@ -20,11 +20,10 @@
 .DS_Store
 *.pem
 
-#husky config
-.husky/pre-commit
+# husky config
+.husky/*
 
-#makeFile Config 
-/Makefile 
+Makefile
 
 
 # debug
