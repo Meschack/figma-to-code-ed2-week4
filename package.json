@@ -11,6 +11,7 @@
     "format": "prettier . --write"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^5.8.2",
     "@clerk/nextjs": "^5.5.2",
     "next": "14.2.11",
     "react": "^18",
