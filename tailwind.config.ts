@@ -10,7 +10,17 @@ const config: Config = {
     extend: {
       colors: {
         background: 'var(--background)',
-        foreground: 'var(--foreground)'
+        foreground: 'var(--foreground)',
+        doctrin: {
+          neutral: {
+            primary: '#192252',
+            secondary: '#606D93',
+            100: '#EFF3FA'
+          }
+        }
+      },
+      fontFamily: {
+        sans: ['var(--font-urbanist)']
       }
     }
   },

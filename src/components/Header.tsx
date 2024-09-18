@@ -1,10 +1,5 @@
 'use client'
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton
-} from '@clerk/clerk-react'
+import { SignedOut, SignInButton } from '@clerk/clerk-react'
 
 export default function Header() {
   return (
@@ -17,9 +12,6 @@ export default function Header() {
           </button>
         </SignInButton>
       </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
     </div>
   )
 }
