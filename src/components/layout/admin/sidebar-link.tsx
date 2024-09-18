@@ -21,8 +21,9 @@ export const SidebarLink = ({
     <Link
       href={element.path}
       className={cn(
-        'text-doctrin-neutral-secondary hover:bg-doctrin-neutral-100 group flex items-center gap-2 rounded-md p-4',
-        isActive && 'bg-doctrin-neutral-100'
+        'group flex items-center gap-2 rounded-md p-4 text-doctrin-neutral-secondary hover:bg-doctrin-neutral-100',
+        isActive && 'bg-doctrin-neutral-100',
+        className
       )}
       key={element.path}
       {...rest}
@@ -41,7 +42,7 @@ export const SidebarLink = ({
           isActive
             ? 'text-doctrin-neutral-primary'
             : 'text-doctrin-neutral-secondary',
-          'group-hover:text-doctrin-neutral-primary inline-flex text-sm font-medium'
+          'inline-flex text-sm font-medium group-hover:text-doctrin-neutral-primary'
         )}
       >
         {element.label}
