@@ -6,12 +6,12 @@ interface Props extends PropsWithChildren {}
 
 const Layout = ({ children }: Props) => {
   return (
-    <main className='h-screen overflow-hidden'>
+    <main className='h-screen'>
       <AdminLayoutHeader />
 
-      <div className='flex h-full'>
+      <div className='flex'>
         <Sidebar />
-        <main className='p-4'>{children}</main>
+        <main className='p-4 grow border-l-2'>{children}</main>
       </div>
     </main>
   )

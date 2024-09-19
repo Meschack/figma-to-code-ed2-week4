@@ -21,6 +21,9 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-urbanist)']
+      },
+      width:{
+        xl: "1028px"
       }
     }
   },

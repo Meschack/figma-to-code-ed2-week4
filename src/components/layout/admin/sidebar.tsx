@@ -22,7 +22,7 @@ export const Sidebar = ({}: Props) => {
   const pathname = usePathname()
 
   return (
-    <aside className='sticky top-0 flex h-full w-60 flex-col gap-1 border-r-2 p-4'>
+    <aside className='sticky top-0 flex h-full w-60 flex-col gap-1 p-4'>
       {sidebarElements.map(element => (
         <SidebarLink
           element={element}

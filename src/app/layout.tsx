@@ -5,7 +5,10 @@ import { urbanist } from './fonts'
 import { PropsWithChildren } from 'react'
 
 export const metadata: Metadata = {
-  title: 'Doctrin',
+  title: {
+    template: 'Doctrin - %s',
+    default: 'Doctrin'
+  },
   description: 'Application de prise de rendez-vous médicaux en ligne'
 }
 

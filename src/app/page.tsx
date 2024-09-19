@@ -1,4 +1,5 @@
 import { Icons } from '@/components/common/icons'
+import { Metadata } from 'next'
 import Link from 'next/link'
 
 export default function Home() {
@@ -14,7 +15,15 @@ export default function Home() {
           href='/admin'
         >
           <Icons.dashboard />
-          Go to the admin space →
+          Docor space →
+        </Link>
+
+        <Link
+          className='flex items-center gap-2 hover:underline hover:underline-offset-4'
+          href='/patient'
+        >
+          <Icons.dashboard />
+          Patient space →
         </Link>
       </footer>
     </div>
