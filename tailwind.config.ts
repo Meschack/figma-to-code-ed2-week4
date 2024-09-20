@@ -13,17 +13,20 @@ const config: Config = {
         foreground: 'var(--foreground)',
         doctrin: {
           neutral: {
-            primary: '#192252',
-            secondary: '#606D93',
-            100: '#EFF3FA'
-          }
+            primary: 'var(--doctrin-neutral-primary)',
+            secondary: 'var(--doctrin-neutral-secondary)',
+            100: 'var(--doctrin-neutral-100)'
+          },
+          light: { blue: 'var(--doctrin-light-blue)' },
+          dark: { blue: 'var(--doctrin-dark-blue)' },
+          blue: 'var(--doctrin-blue)'
         }
       },
       fontFamily: {
         sans: ['var(--font-urbanist)']
       },
-      width:{
-        xl: "1028px"
+      width: {
+        xl: '1028px'
       }
     }
   },

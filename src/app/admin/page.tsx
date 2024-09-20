@@ -1,6 +1,6 @@
 interface Props {}
 
-const Page = ({}: Props) => {
+const Page = async ({}: Props) => {
   return <h1>Dashboard</h1>
 }
 
