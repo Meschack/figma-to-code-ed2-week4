@@ -27,7 +27,8 @@ const config: Config = {
       },
       width: {
         xl: '1028px'
-      }
+      },
+      maxWidth: { desktop: '1200px', tablet: '676px' }
     }
   },
   plugins: []
