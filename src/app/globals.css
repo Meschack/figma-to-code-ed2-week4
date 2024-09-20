@@ -5,6 +5,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --neutral-blue: #007bff;
+
+  --doctrin-neutral-primary: #192252;
+  --doctrin-neutral-secondary: #606d93;
+  --doctrin-neutral-100: #eff3fa;
+  --doctrin-light-blue: #e6f6fe;
+  --doctrin-dark-blue: #011632;
+  --doctrin-blue: #1376f8;
 }
 
 @media (prefers-color-scheme: dark) {
