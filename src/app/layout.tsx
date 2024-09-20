@@ -16,9 +16,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <ClerkProvider>
       <html lang='en'>
-        <body className={`${urbanist.variable} space-y-10 pt-10 font-sans`}>
-          {children}
-        </body>
+        <body className={`${urbanist.variable} font-sans`}>{children}</body>
       </html>
     </ClerkProvider>
   )
