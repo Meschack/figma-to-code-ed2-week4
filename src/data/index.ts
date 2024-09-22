@@ -18,3 +18,12 @@ export const servicesData = [
         'Orthodontics is a specialty that deals with the diagnosis, prevention, and correction of teeth alignment.',
     },
   ];
+
+export const specialists = [
+  { name: 'Jim Carry', title: 'Orthodontist', imgSrc: '/images/specialist-1.svg' },
+  { name: 'Wade Warren', title: 'Endodontist', imgSrc: '/images/specialist-2.svg' },
+  { name: 'Jenny Wilson', title: 'Periodontist', imgSrc: '/images/specialist-3.svg' },
+  { name: 'Jacob Jones', title: 'Pediatric Dentist', imgSrc: '/images/specialist-4.svg' },
+  { name: 'Jane Doe', title: 'Oral Surgeon', imgSrc: '/images/specialist-3.svg' },
+];
+

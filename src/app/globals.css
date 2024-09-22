@@ -10,3 +10,15 @@
       -webkit-line-clamp: 2;
     }
   }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+  }
+  
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  

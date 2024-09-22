@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Icon from './icon'
 import LearnMoreButton from './learn-more-button'
-import { servicesData } from '@/constants'
+import { servicesData } from '@/data'
 import Button from './button'
 
 export default function Services() {
