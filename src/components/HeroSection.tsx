@@ -49,7 +49,7 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <img
+              <Image
                 src='/icons/linkedin.svg'
                 alt='Linkedin'
                 width={40}

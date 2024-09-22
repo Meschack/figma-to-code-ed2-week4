@@ -69,7 +69,7 @@ export default function Services() {
 
             <div className='flex- flex-col space-y-4'>
               <div className='flex items-center gap-2'>
-                <img
+                <Image
                   src='/icons/shield-done.svg'
                   alt='Shield Done Icon'
                   width={20}
@@ -81,7 +81,7 @@ export default function Services() {
               </div>
 
               <div className='flex items-center gap-2'>
-                <img
+                <Image
                   src='/icons/shield-done.svg'
                   alt='Shield Done Icon'
                   width={20}
@@ -93,7 +93,7 @@ export default function Services() {
               </div>
 
               <div className='flex items-center gap-2'>
-                <img
+                <Image
                   src='/icons/shield-done.svg'
                   alt='Shield Done Icon'
                   width={20}
@@ -105,7 +105,7 @@ export default function Services() {
               </div>
 
               <div className='flex items-center gap-2'>
-                <img
+                <Image
                   src='/icons/shield-done.svg'
                   alt='Shield Done Icon'
                   width={20}
