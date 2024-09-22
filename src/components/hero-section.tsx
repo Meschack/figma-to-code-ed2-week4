@@ -1,15 +1,15 @@
-import Button from './Button'
+import Button from './button'
 import Image from 'next/image'
 
 export default function HeroSection() {
   return (
-    <div className='max-w-6xl mx-auto px-4 font-general-sans'>
-      <div className='flex items-center justify-between lg:flex-row flex-col gap-5'>
+    <div className='mx-auto max-w-6xl px-4 font-general-sans'>
+      <div className='flex flex-col items-center justify-between gap-5 lg:flex-row'>
         <div className='flex- flex-col space-y-7'>
           <h1 className='text-5xl font-semibold leading-tight'>
             Get Ready For Your Best Ever Dental Experience!
           </h1>
-          <p className='text-body-text max-w-lg'>
+          <p className='max-w-lg text-body-text'>
             We use only the best quality materials on the market in order to
             provide the best products to our patients, So don’t worry about
             anything and book yourself.

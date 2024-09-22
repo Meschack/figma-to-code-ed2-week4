@@ -1,13 +1,13 @@
 import Image from 'next/image'
-import Icon from './Icon'
-import LearnMoreButton from './LearnMoreButton'
+import Icon from './icon'
+import LearnMoreButton from './learn-more-button'
 import { servicesData } from '@/constants'
-import Button from './Button'
+import Button from './button'
 
 export default function Services() {
   return (
     <div className='mx-auto max-w-6xl space-y-10 px-4 py-10 font-general-sans'>
-      <section className='rounded-lg bg-light-blue pt-4 py-8 border '>
+      <section className='rounded-lg border bg-light-blue py-8 pt-4'>
         <div className='grid grid-cols-3 place-items-center gap-4'>
           {servicesData.map((service, index) => (
             <div key={index} className='mx-5 my-8 flex flex-col justify-center'>
@@ -28,11 +28,11 @@ export default function Services() {
       <section></section>
 
       <section className='px-4 py-10 pt-4'>
-        <div className='flex items-center justify-between flex-col lg:flex-row gap-8'>
+        <div className='flex flex-col items-center justify-between gap-8 lg:flex-row'>
           <div className='flex flex-col space-y-7'>
             <h2 className='text-left text-4xl font-semibold leading-tight'>
-              Leave Your Worries At The <br /> Door And Enjoy A Healthier, <br /> More Precise
-              Smile
+              Leave Your Worries At The <br /> Door And Enjoy A Healthier,{' '}
+              <br /> More Precise Smile
             </h2>
 
             <p className='max-w-lg text-body-text'>
@@ -49,7 +49,7 @@ export default function Services() {
       </section>
 
       <section className='rounded-lg bg-light-blue px-3 py-6 pt-4'>
-        <div className='max-w-full mx-auto flex justify-around py-8 lg:flex-row flex-col' >
+        <div className='mx-auto flex max-w-full flex-col justify-around py-8 lg:flex-row'>
           <Image
             src='/images/reasons-section.svg'
             alt=''
@@ -57,7 +57,7 @@ export default function Services() {
             height={400}
           />
 
-          <div className='space-y-4 max-w-lg'>
+          <div className='max-w-lg space-y-4'>
             <h2 className='text-3xl font-semibold'>
               Why choose Smile for all your dental treatments?
             </h2>

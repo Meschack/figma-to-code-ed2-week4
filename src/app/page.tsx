@@ -1,6 +1,6 @@
-import Header from "@/components/Header"
-import HeroSection from "@/components/HeroSection"
-import Services from "@/components/Services"
+import Header from "@/components/header"
+import HeroSection from "@/components/hero-section"
+import Services from "@/components/services"
 export default function Home() {
   return (
     <>  
