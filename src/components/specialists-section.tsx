@@ -1,15 +1,31 @@
 'use client'
+<<<<<<< HEAD
 import { useRef } from 'react'
 import SpecialistCard from './specialist-card'
 import { specialists } from '../data'
 import { Icons } from './common/icons'
 
 export const SpecialistsSection = () => {
+=======
+import Image from 'next/image'
+import { FC, useRef } from 'react'
+import SpecialistCard from './specialist-card'
+import { specialists } from '../data'
+
+const SpecialistsSection: FC = () => {
+>>>>>>> 7ee8c05 (feat: complete initial version of landing page (non-responsive) ✅​)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const scroll = (direction: number) => {
     if (scrollRef.current) {
+<<<<<<< HEAD
       scrollRef.current.scrollBy({ left: direction * 300, behavior: 'smooth' })
+=======
+      scrollRef.current.scrollBy({
+        left: direction * 300,
+        behavior: 'smooth'
+      })
+>>>>>>> 7ee8c05 (feat: complete initial version of landing page (non-responsive) ✅​)
     }
   }
 
@@ -45,21 +61,51 @@ export const SpecialistsSection = () => {
 
           <button
             onClick={() => scroll(-1)}
+<<<<<<< HEAD
             className='absolute left-0 top-1/2 -translate-y-1/2 transform rounded-full bg-white p-2 shadow-md hover:bg-gray-200'
             aria-label='Scroll left'
           >
             <Icons.arrowLeft />
+=======
+            className='absolute left-0 top-1/2 -translate-y-1/2 transform rounded-full bg-white p-2.5 shadow-md hover:bg-gray-200'
+            aria-label='Scroll left'
+          >
+            <Image
+              src='/icons/arrow-right-icon.svg'
+              alt='Previous'
+              width={26}
+              height={26}
+              className='rotate-180'
+            />
+>>>>>>> 7ee8c05 (feat: complete initial version of landing page (non-responsive) ✅​)
           </button>
 
           <button
             onClick={() => scroll(1)}
+<<<<<<< HEAD
             className='absolute right-0 top-1/2 -translate-y-1/2 transform rounded-full bg-white p-2 shadow-md hover:bg-gray-200'
             aria-label='Scroll right'
           >
             <Icons.arrowRight />
+=======
+            className='absolute right-0 top-1/2 -translate-y-1/2 transform rounded-full bg-white p-2.5 shadow-md hover:bg-gray-200'
+            aria-label='Scroll right'
+          >
+            <Image
+              src='/icons/arrow-right-icon.svg'
+              alt='Next'
+              width={26}
+              height={26}
+            />
+>>>>>>> 7ee8c05 (feat: complete initial version of landing page (non-responsive) ✅​)
           </button>
         </div>
       </div>
     </section>
   )
 }
+<<<<<<< HEAD
+=======
+
+export default SpecialistsSection
+>>>>>>> 7ee8c05 (feat: complete initial version of landing page (non-responsive) ✅​)

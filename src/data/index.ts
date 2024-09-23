@@ -20,6 +20,7 @@ export const servicesData = [
 ]
 
 export const specialists = [
+<<<<<<< HEAD
   {
     name: 'Jim Carry',
     title: 'Orthodontist',
@@ -46,3 +47,46 @@ export const specialists = [
     imgSrc: '/images/specialist/5.jpg'
   }
 ]
+======
+  { name: 'Jim Carry', title: 'Orthodontist', imgSrc: '/images/specialist-1.svg' },
+  { name: 'Wade Warren', title: 'Endodontist', imgSrc: '/images/specialist-2.svg' },
+  { name: 'Jenny Wilson', title: 'Periodontist', imgSrc: '/images/specialist-3.svg' },
+  { name: 'Jacob Jones', title: 'Pediatric Dentist', imgSrc: '/images/specialist-4.svg' },
+  { name: 'Jane Doe', title: 'Oral Surgeon', imgSrc: '/images/specialist-3.svg' },
+];
+
+export const testimonials = [
+  {
+    name: 'Thomas Daniel',
+    role: 'Orthodontist',
+    image: '/images/thomas-daniel.svg',
+    message:
+      'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
+    rating: 5,
+  },
+  {
+    name: 'Alena Alex',
+    role: 'Endodontist',
+    image: '/images/alena.svg',
+    message:
+      'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
+    rating: 5,
+  },
+  {
+    name: 'Thomas Edison',
+    role: 'Pediatric Dentist',
+    image: '/images/thomas-edison.svg',
+    message:
+      'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
+    rating: 5,
+  },
+  {
+    name: 'Jane Doe',
+    role: 'Oral Surgeon',
+    image: '/images/thomas-edison.svg',
+    message:
+      'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
+    rating: 5,
+  },
+];
+>>>>>>> 7ee8c05 (feat: complete initial version of landing page (non-responsive) ✅​)

@@ -1,22 +1,12 @@
 import Image from 'next/image'
 import Icon from './icon'
+import LearnMoreButton from './learn-more-button'
 import { servicesData } from '@/data'
-import { Wrapper } from './common/wrapper'
-import { LearnMoreButton } from './learn-more-button'
-import { Button } from './common/button'
-import Link from 'next/link'
-import { Icons } from './common/icons'
+import Button from './button'
 
-const reasons = [
-  'Top quality dental team',
-  'State of the art dental services',
-  'Discount on all dental treatment',
-  'Enrollment is quick and easy'
-]
-
-export const Services = () => {
+export default function Services() {
   return (
-    <Wrapper className='space-y-10'>
+    <div className='mx-auto max-w-6xl space-y-10 px-4 font-general-sans pb-14'>
       <section className='rounded-lg bg-light-blue py-8 pt-4'>
         <div className='grid grid-cols-3 place-items-center gap-4'>
           {servicesData.map((service, index) => (
@@ -25,11 +15,9 @@ export const Services = () => {
 
               <div className='space-y-2 text-center'>
                 <h3 className='mt-2 text-xl font-medium'>{service.title}</h3>
-
                 <p className='mx-auto line-clamp-3 max-w-sm text-body-text'>
                   {service.description}
                 </p>
-
                 <LearnMoreButton />
               </div>
             </div>
@@ -51,9 +39,7 @@ export const Services = () => {
               anything and book yourself.
             </p>
 
-            <Button asChild className='w-fit'>
-              <Link href='/booking'>Book an appointment</Link>
-            </Button>
+            <Button href='/book-appointment' text='Book an appointment' />
           </div>
 
           <Image src='/images/section-3.svg' alt='' width={450} height={450} />
@@ -79,23 +65,62 @@ export const Services = () => {
               anything and book yourself.
             </p>
 
-            <ul className='flex- flex-col space-y-4'>
-              {reasons.map((reason, index) => (
-                <li key={index} className='flex items-center gap-2'>
-                  <Icons.shieldDone />
-                  <p className='font-medium text-body-text'>{reason}</p>
-                </li>
-              ))}
-            </ul>
+            <div className='flex- flex-col space-y-4'>
+              <div className='flex items-center gap-2'>
+                <Image
+                  src='/icons/shield-done.svg'
+                  alt='Shield Done Icon'
+                  width={20}
+                  height={20}
+                />
+                <p className='font-medium text-body-text'>
+                  Top quality dental team
+                </p>
+              </div>
+
+              <div className='flex items-center gap-2'>
+                <Image
+                  src='/icons/shield-done.svg'
+                  alt='Shield Done Icon'
+                  width={20}
+                  height={20}
+                />
+                <p className='font-medium text-body-text'>
+                  State of the art dental services
+                </p>
+              </div>
+
+              <div className='flex items-center gap-2'>
+                <Image
+                  src='/icons/shield-done.svg'
+                  alt='Shield Done Icon'
+                  width={20}
+                  height={20}
+                />
+                <p className='font-medium text-body-text'>
+                  Discount on all dental treatment
+                </p>
+              </div>
+
+              <div className='flex items-center gap-2'>
+                <Image
+                  src='/icons/shield-done.svg'
+                  alt='Shield Done Icon'
+                  width={20}
+                  height={20}
+                />
+                <p className='font-medium text-body-text'>
+                  Enrollment is quick and easy
+                </p>
+              </div>
+            </div>
 
             <div className='py-4'>
-              <Button asChild className='w-fit'>
-                <Link href='/booking'>Book an appointment</Link>
-              </Button>
+              <Button href='/book-appointment' text='Book an appointment' />
             </div>
           </div>
         </div>
       </section>
-    </Wrapper>
+    </div>
   )
 }
