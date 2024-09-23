@@ -1,3 +1,5 @@
+import { addDays } from 'date-fns'
+
 export const servicesData = [
   {
     icon: '/icons/teeth-icon.svg',
@@ -20,7 +22,6 @@ export const servicesData = [
 ]
 
 export const specialists = [
-<<<<<<< HEAD
   {
     name: 'Jim Carry',
     title: 'Orthodontist',
@@ -47,13 +48,6 @@ export const specialists = [
     imgSrc: '/images/specialist/5.jpg'
   }
 ]
-======
-  { name: 'Jim Carry', title: 'Orthodontist', imgSrc: '/images/specialist-1.svg' },
-  { name: 'Wade Warren', title: 'Endodontist', imgSrc: '/images/specialist-2.svg' },
-  { name: 'Jenny Wilson', title: 'Periodontist', imgSrc: '/images/specialist-3.svg' },
-  { name: 'Jacob Jones', title: 'Pediatric Dentist', imgSrc: '/images/specialist-4.svg' },
-  { name: 'Jane Doe', title: 'Oral Surgeon', imgSrc: '/images/specialist-3.svg' },
-];
 
 export const testimonials = [
   {
@@ -62,7 +56,7 @@ export const testimonials = [
     image: '/images/thomas-daniel.svg',
     message:
       'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
-    rating: 5,
+    rating: 5
   },
   {
     name: 'Alena Alex',
@@ -70,7 +64,7 @@ export const testimonials = [
     image: '/images/alena.svg',
     message:
       'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
-    rating: 5,
+    rating: 5
   },
   {
     name: 'Thomas Edison',
@@ -78,7 +72,7 @@ export const testimonials = [
     image: '/images/thomas-edison.svg',
     message:
       'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
-    rating: 5,
+    rating: 5
   },
   {
     name: 'Jane Doe',
@@ -86,7 +80,8 @@ export const testimonials = [
     image: '/images/thomas-edison.svg',
     message:
       'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
-    rating: 5,
-  },
-];
->>>>>>> 7ee8c05 (feat: complete initial version of landing page (non-responsive) ✅​)
+    rating: 5
+  }
+]
+
+export const tommorow = addDays(new Date(), 1)

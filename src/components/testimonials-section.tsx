@@ -1,10 +1,10 @@
 'use client'
-
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { testimonials } from '@/data'
 import { StarRating } from './star-rating'
+import { Wrapper } from './common/wrapper'
 
-export default function TestimonialsSection() {
+export const TestimonialsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null)
   const cardWidth = 300 // Largeur d'une card, ici 300px
 
@@ -42,7 +42,7 @@ export default function TestimonialsSection() {
 
   return (
     <section>
-      <div className='mx-auto max-w-7xl px-4 py-8 font-general-sans'>
+      <Wrapper className='px-4 py-8 font-general-sans'>
         <div className='mb-8 space-y-2 pt-8 text-center'>
           <h2 className='text-4xl font-semibold'>
             Our <span className='text-primary-blue'>Happy Clients</span>
@@ -83,7 +83,7 @@ export default function TestimonialsSection() {
             ))}
           </div>
         </div>
-      </div>
+      </Wrapper>
     </section>
   )
 }

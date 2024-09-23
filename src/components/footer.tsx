@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import React from 'react'
+import { Wrapper } from './common/wrapper'
 
 export const Footer = () => {
   return (
     <footer className='bg-white py-6 font-general-sans'>
-      <div className='mx-auto flex max-w-7xl flex-col items-center justify-between space-y-6 px-4 md:flex-row md:space-y-0'>
+      <Wrapper className='flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0'>
         <div className='flex items-center space-x-2'>
           <Image
             src='/images/logo.svg'
@@ -42,9 +42,9 @@ export const Footer = () => {
             </a>
           </li>
         </ul>
-      </div>
+      </Wrapper>
 
-      <div className='mx-auto mt-6 max-w-7xl border-t pt-4 text-left text-sm font-medium text-body-text'>
+      <Wrapper className='mt-6 border-t pt-4 text-left text-sm font-medium text-body-text'>
         <div className='flex justify-between'>
           <p>
             All rights reserved © uifry.com |{' '}
@@ -85,9 +85,7 @@ export const Footer = () => {
             />
           </div>
         </div>
-      </div>
+      </Wrapper>
     </footer>
   )
 }
-
-export default Footer

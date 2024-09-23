@@ -3,6 +3,33 @@ import { ComponentPropsWithoutRef } from 'react'
 interface IconProps extends ComponentPropsWithoutRef<'svg'> {}
 
 export const Icons = {
+  circleCheck: (props: IconProps) => (
+    <svg
+      width='43'
+      height='42'
+      viewBox='0 0 43 42'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <rect
+        x='2'
+        y='1.5'
+        width='39'
+        height='39'
+        rx='19.5'
+        stroke='currentColor'
+        strokeWidth='3'
+      />
+      <path
+        d='M29.5 15L18.5 27L13.5 21.5455'
+        stroke='currentColor'
+        strokeWidth='3'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  ),
   arrowLeft: (props: IconProps) => (
     <svg
       width='24'
@@ -181,6 +208,112 @@ export const Icons = {
           />
         </g>
       </g>
+    </svg>
+  ),
+  check: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='M20 6 9 17l-5-5' />
+    </svg>
+  ),
+  cross: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='M18 6 6 18' />
+      <path d='m6 6 12 12' />
+    </svg>
+  ),
+  chevronDown: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <path
+        d='M19 8.5L12 15.5L5 8.5'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  ),
+  chevronUp: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <path
+        d='M5 15.5L12 8.5L19 15.5'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  ),
+  chevronLeft: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <path
+        d='M15.5 19L8.5 12L15.5 5'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  ),
+  chevronRight: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      color='currentColor'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <path
+        d='M8.5 5L15.5 12L8.5 19'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
     </svg>
   ),
   dashboard: (props: IconProps) => (
@@ -438,6 +571,39 @@ export const Icons = {
       </g>
     </svg>
   ),
+  search: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <g id='Iconly/Light/Search'>
+        <g id='Search'>
+          <circle
+            id='Ellipse_739'
+            cx='11.7666'
+            cy='11.7666'
+            r='8.98856'
+            stroke='#130F26'
+            strokeWidth='1.5'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+          />
+          <path
+            id='Line_181'
+            d='M18.0183 18.4851L21.5423 22'
+            stroke='#130F26'
+            strokeWidth='1.5'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+          />
+        </g>
+      </g>
+    </svg>
+  ),
   shieldDone: (props: IconProps) => (
     <svg
       width='20'
@@ -475,6 +641,28 @@ export const Icons = {
         clipRule='evenodd'
         d='M9.81423 12.1014C9.6484 12.1014 9.48923 12.0355 9.37173 11.918L7.79507 10.3397C7.55173 10.0955 7.55173 9.69885 7.7959 9.45552C8.03923 9.21135 8.4359 9.21135 8.68007 9.45552L9.81423 10.5914L12.6209 7.78469C12.8651 7.54052 13.2601 7.54052 13.5042 7.78469C13.7484 8.02885 13.7484 8.42469 13.5042 8.66885L10.2559 11.918C10.1392 12.0355 9.98007 12.1014 9.81423 12.1014Z'
         fill='#1376F8'
+      />
+    </svg>
+  ),
+  spinner: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      fill='none'
+      viewBox='0 0 24 24'
+      {...props}
+    >
+      <circle
+        className='opacity-25'
+        cx='12'
+        cy='12'
+        r='10'
+        stroke='currentColor'
+        strokeWidth='4'
+      ></circle>
+      <path
+        className='opacity-75'
+        fill='currentColor'
+        d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
       />
     </svg>
   )

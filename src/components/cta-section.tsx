@@ -1,10 +1,10 @@
-import React from 'react'
 import Image from 'next/image'
 import Button from './button'
+import { Wrapper } from './common/wrapper'
 
-const CTASection = () => {
+export const CTASection = () => {
   return (
-    <section className='mx-auto my-10 max-w-6xl rounded-2xl bg-[#001f54] px-6 py-6 font-general-sans md:py-10'>
+    <Wrapper className='my-10 rounded-2xl bg-[#001f54] p-6 font-general-sans md:py-10'>
       <div className='mx-auto flex max-w-7xl flex-col items-center gap-8 px-8 md:flex-row md:justify-between'>
         <div className='space-y-6 text-center md:text-left'>
           <h1 className='text-3xl font-semibold text-white md:text-4xl'>
@@ -29,8 +29,6 @@ const CTASection = () => {
           />
         </div>
       </div>
-    </section>
+    </Wrapper>
   )
 }
-
-export default CTASection
