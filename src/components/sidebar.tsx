@@ -1,5 +1,5 @@
 // import React from 'react';
-// import { Calendar, Users, MessageCircleMore, CreditCard } from 'lucide-react'; 
+// import { Calendar, Users, MessageCircleMore, CreditCard } from 'lucide-react';
 
 // export default function Sidebar() {
 //   return (

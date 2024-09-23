@@ -1,3 +1,5 @@
+import { addDays } from 'date-fns'
+
 export const servicesData = [
   {
     icon: '/icons/teeth-icon.svg',
@@ -46,3 +48,5 @@ export const specialists = [
     imgSrc: '/images/specialist/5.jpg'
   }
 ]
+
+export const tommorow = addDays(new Date(), 1)

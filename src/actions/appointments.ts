@@ -1,17 +1,16 @@
+'use server'
+
 import prisma from '@/lib/prisma'
 import { currentUser } from '@clerk/nextjs/server'
-import { AppointmentStatus } from '@prisma/client'
+import { appointment, AppointmentStatus } from '@prisma/client'
 
-interface NewAppointmentData {
-  patient_clerk_id: string
-  start_at: Date
-  status: AppointmentStatus
-  reason: string
-  appointment_type_id: string
-}
+interface NewAppointmentData
+  extends Omit<appointment, 'status' | 'id' | 'updatedAt' | 'createdAt'> {}
 
 const create = async (data: NewAppointmentData) => {
-  const appointment = prisma.appointment.create({ data })
+  const appointment = prisma.appointment.create({
+    data: { ...data, status: AppointmentStatus.SCHEDULED }
+  })
 
   return appointment
 }

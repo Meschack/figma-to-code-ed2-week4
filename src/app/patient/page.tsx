@@ -1,12 +1,9 @@
-import { Metadata } from "next"
-
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: "Patient dashboard"
+  title: 'Patient dashboard'
 }
 
-export default function HomePage(){
-    return(
-        <h1>Patient</h1>
-    )
+export default function HomePage() {
+  return <h1>Patient</h1>
 }

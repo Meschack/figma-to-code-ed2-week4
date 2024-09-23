@@ -13,6 +13,12 @@
   --doctrin-light-blue: #e6f6fe;
   --doctrin-dark-blue: #011632;
   --doctrin-blue: #1376f8;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,22 +35,21 @@
 }
 
 @layer utilities {
-    .line-clamp-3 {
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-    }
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none; 
-    scrollbar-width: none;
-  }
-  
-  .scroll-smooth {
-    scroll-behavior: smooth;
-  }
-  
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
