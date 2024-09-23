@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model appointment_type {
+  id          String        @id @default(cuid())
+  name        String        @db.VarChar(255)
+  description String?       @db.VarChar(255)
+  duration    Int // durée par défaut en minutes
+  appointment appointment[]
+}
+
+model appointment {
+  id                  String            @id @default(cuid())
+  patient_clerk_id    String
+  start_at            DateTime
+  status              AppointmentStatus
+  reason              String            @db.VarChar(255)
+  appointment_type_id String            @db.VarChar(255)
+  appointment_type    appointment_type  @relation(fields: [appointment_type_id], references: [id])
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @default(now()) @updatedAt
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  CANCELLED
+  COMPLETED
+}

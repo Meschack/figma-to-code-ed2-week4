@@ -1,11 +1,12 @@
-import Image from 'next/image';
-import React from 'react'
+import { Button } from './common/button'
+import { Icons } from './common/icons'
 
-const LearnMoreButton = () => (
-    <p className="font-medium flex justify-center items-center gap-2 underline cursor-pointer my-2">
-      Learn More
-      <Image src="/icons/arrow-right.svg" alt="Arrow Right Icon" width={20} height={20} />
-    </p>
-  );
-
-export default LearnMoreButton
+export const LearnMoreButton = () => (
+  <Button
+    variant='link'
+    className='gap-2 text-base text-black underline underline-offset-2'
+  >
+    <span>Learn more</span>
+    <Icons.arrowRight className='size-5' />
+  </Button>
+)
