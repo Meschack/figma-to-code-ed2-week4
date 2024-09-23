@@ -20,7 +20,7 @@ interface PageProps {
 
 const Page = async ({ searchParams }: PageProps) => {
   try {
-    let { date, appointment_type } = searchParamsCache.parse(searchParams)
+    const { date, appointment_type } = searchParamsCache.parse(searchParams)
 
     const appointmentTypes = await prisma.appointment_type.findMany()
 

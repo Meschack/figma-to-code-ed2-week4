@@ -6,7 +6,6 @@ import { Button } from '@/components/common/button'
 interface Props extends ComponentProps<typeof Button> {
   loading?: boolean | undefined
   loadingText?: string
-  icon?: React.ComponentType<{ className?: string }>
 }
 
 export const LoadingButton = (props: Props) => {
@@ -14,7 +13,6 @@ export const LoadingButton = (props: Props) => {
     loading,
     loadingText = 'Loading...',
     className,
-    icon,
     children,
     variant,
     ...rest
@@ -34,11 +32,7 @@ export const LoadingButton = (props: Props) => {
           {loadingText}
         </>
       ) : (
-        <div className='flex items-center gap-1'>
-          {props.icon && <props.icon className='size-3.5' />}
-
-          {children}
-        </div>
+        <div className='flex items-center gap-1'>{children}</div>
       )}
     </Button>
   )
