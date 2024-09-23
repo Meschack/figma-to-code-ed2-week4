@@ -25,9 +25,16 @@ const config: Config = {
           light: { blue: 'var(--doctrin-light-blue)' },
           dark: { blue: 'var(--doctrin-dark-blue)' },
           blue: 'var(--doctrin-blue)'
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))'
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))'
         }
       },
-
       fontFamily: {
         'geist-sans': ['var(--font-geist-sans)', 'sans-serif'],
         'geist-mono': ['var(--font-geist-mono)', 'monospace'],
@@ -35,7 +42,11 @@ const config: Config = {
         sans: ['var(--font-urbanist)']
       },
       width: { xl: '1028px' },
-      maxWidth: { desktop: '1200px', tablet: '676px' }
+      maxWidth: { desktop: '1200px', tablet: '676px' },
+      keyframes: {
+        shimmer: { '100%': { transform: 'translateX(100%)' } }
+      },
+      animation: { shimmer: 'shimmer 2s infinite' }
     }
   },
   plugins: []
