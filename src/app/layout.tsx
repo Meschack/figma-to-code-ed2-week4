@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: 'Doctrin - %s',
     default: 'Doctrin'
   },
-  description: 'Application de prise de rendez-vous médicaux en ligne'
+  description: 'Online medical appointment booking application'
 }
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {

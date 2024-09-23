@@ -11,6 +11,11 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        'primary-blue': '#1376f8',
+        'light-blue': '#E6F6FE',
+        'dark-blue': '#011632',
+        'body-text': '#3C4959',
+        'sky-blue': '#25B4F8',
         doctrin: {
           neutral: {
             primary: 'var(--doctrin-neutral-primary)',
@@ -22,12 +27,14 @@ const config: Config = {
           blue: 'var(--doctrin-blue)'
         }
       },
+
       fontFamily: {
+        'geist-sans': ['var(--font-geist-sans)', 'sans-serif'],
+        'geist-mono': ['var(--font-geist-mono)', 'monospace'],
+        'general-sans': ['var(--font-general-sans)', 'sans-serif'],
         sans: ['var(--font-urbanist)']
       },
-      width: {
-        xl: '1028px'
-      },
+      width: { xl: '1028px' },
       maxWidth: { desktop: '1200px', tablet: '676px' }
     }
   },

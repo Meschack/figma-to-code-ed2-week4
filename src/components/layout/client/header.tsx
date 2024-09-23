@@ -17,7 +17,9 @@ export const Header = () => {
   return (
     <Wrapper>
       <div className='flex items-center justify-between rounded-lg bg-doctrin-light-blue px-10 py-5'>
-        <Icons.logo className='h-8' />
+        <Link href='/'>
+          <Icons.logo className='h-8' />
+        </Link>
 
         <ul className='flex items-center gap-5'>
           {menuItems.map(item => (
