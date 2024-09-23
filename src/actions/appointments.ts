@@ -2,10 +2,31 @@
 
 import prisma from '@/lib/prisma'
 import { currentUser } from '@clerk/nextjs/server'
-import { appointment, AppointmentStatus } from '@prisma/client'
+import { appointment, AppointmentStatus, Prisma } from '@prisma/client'
 
 interface NewAppointmentData
   extends Omit<appointment, 'status' | 'id' | 'updatedAt' | 'createdAt'> {}
+
+export interface GroupedAppointments {
+  [date: string]: Prisma.appointmentGetPayload<{}>[]
+}
+
+export const get = async () => {
+  const appointments = await prisma.appointment.findMany({
+    orderBy: { createdAt: 'desc' }
+  })
+
+  const groupedAppointments = appointments.reduce((acc, appointment) => {
+    const date = appointment.createdAt.toISOString().split('T')[0]
+    if (!acc[date]) acc[date] = []
+
+    acc[date].push(appointment)
+
+    return acc
+  }, {} as GroupedAppointments)
+
+  return groupedAppointments
+}
 
 const create = async (data: NewAppointmentData) => {
   const appointment = prisma.appointment.create({
