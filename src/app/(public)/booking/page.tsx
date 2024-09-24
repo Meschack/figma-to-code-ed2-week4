@@ -13,6 +13,12 @@ const searchParamsCache = createSearchParamsCache({
   appointment_type: parseAsString
 })
 
+export const metadata = {
+  title: 'Booking',
+  description:
+    'Check our avalibility and book the date and time that suits you.'
+}
+
 export const dynamic = 'force-dynamic'
 
 interface PageProps {
