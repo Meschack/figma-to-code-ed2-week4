@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           'bg-doctrin-blue text-white [&>svg]:text-white hover:bg-doctrin-blue/90',
         outline:
-          'border border-doctrin-blue text-doctrin-blue hover:bg-doctrin-blue hover:text-white',
+          'border border-doctrin-blue text-doctrin-blue hover:bg-doctrin-blue hover:text-white hover:[&>svg]:!text-white',
         link: 'text-doctrin-blue underline-offset-4 hover:underline'
       },
       size: {

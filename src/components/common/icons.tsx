@@ -3,6 +3,83 @@ import { ComponentPropsWithoutRef } from 'react'
 interface IconProps extends ComponentPropsWithoutRef<'svg'> {}
 
 export const Icons = {
+  circleCheck: (props: IconProps) => (
+    <svg
+      width='43'
+      height='42'
+      viewBox='0 0 43 42'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <rect
+        x='2'
+        y='1.5'
+        width='39'
+        height='39'
+        rx='19.5'
+        stroke='currentColor'
+        strokeWidth='3'
+      />
+      <path
+        d='M29.5 15L18.5 27L13.5 21.5455'
+        stroke='currentColor'
+        strokeWidth='3'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  ),
+  arrowLeft: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <path
+        d='M4.25 12.2743L19.25 12.2743'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+      <path
+        d='M10.2998 18.2987L4.2498 12.2747L10.2998 6.24969'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  ),
+  arrowRight: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <path
+        d='M19.75 11.7257L4.75 11.7257'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+      <path
+        d='M13.7002 5.70131L19.7502 11.7253L13.7002 17.7503'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  ),
   bell: (props: IconProps) => (
     <svg
       width='24'
@@ -131,6 +208,112 @@ export const Icons = {
           />
         </g>
       </g>
+    </svg>
+  ),
+  check: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='M20 6 9 17l-5-5' />
+    </svg>
+  ),
+  cross: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='M18 6 6 18' />
+      <path d='m6 6 12 12' />
+    </svg>
+  ),
+  chevronDown: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <path
+        d='M19 8.5L12 15.5L5 8.5'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  ),
+  chevronUp: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <path
+        d='M5 15.5L12 8.5L19 15.5'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  ),
+  chevronLeft: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <path
+        d='M15.5 19L8.5 12L15.5 5'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  ),
+  chevronRight: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      color='currentColor'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <path
+        d='M8.5 5L15.5 12L8.5 19'
+        stroke='#130F26'
+        strokeWidth='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
     </svg>
   ),
   dashboard: (props: IconProps) => (
@@ -386,6 +569,101 @@ export const Icons = {
           />
         </g>
       </g>
+    </svg>
+  ),
+  search: (props: IconProps) => (
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <g id='Iconly/Light/Search'>
+        <g id='Search'>
+          <circle
+            id='Ellipse_739'
+            cx='11.7666'
+            cy='11.7666'
+            r='8.98856'
+            stroke='#130F26'
+            strokeWidth='1.5'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+          />
+          <path
+            id='Line_181'
+            d='M18.0183 18.4851L21.5423 22'
+            stroke='#130F26'
+            strokeWidth='1.5'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+          />
+        </g>
+      </g>
+    </svg>
+  ),
+  shieldDone: (props: IconProps) => (
+    <svg
+      width='20'
+      height='20'
+      viewBox='0 0 20 20'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <mask
+        id='mask0_201_3214'
+        maskUnits='userSpaceOnUse'
+        x='3'
+        y='1'
+        width='15'
+        height='18'
+      >
+        <path
+          fillRule='evenodd'
+          clipRule='evenodd'
+          d='M3.3335 1.66797H17.4725V18.631H3.3335V1.66797Z'
+          fill='white'
+        />
+      </mask>
+      <g mask='url(#mask0_201_3214)'>
+        <path
+          fillRule='evenodd'
+          clipRule='evenodd'
+          d='M10.403 2.91797C9.69634 2.91797 5.23801 4.48797 4.72384 4.91714C4.57217 5.06964 4.56634 5.33464 4.59884 7.1088C4.61384 7.9638 4.63467 9.12547 4.63467 10.7338C4.63467 15.068 9.40301 16.9921 10.4022 17.3463C11.4005 16.9905 16.1713 15.0555 16.1713 10.7338C16.1713 9.1238 16.1922 7.9613 16.208 7.1063C16.2397 5.3338 16.2338 5.0688 16.073 4.9088C15.5688 4.48797 11.1097 2.91797 10.403 2.91797ZM10.403 18.6313C10.3422 18.6313 10.2813 18.623 10.2222 18.6046C9.94301 18.5205 3.38467 16.4688 3.38467 10.7338C3.38467 9.1363 3.36384 7.98047 3.34884 7.13214C3.31051 5.01297 3.30217 4.5713 3.84967 4.02464C4.50384 3.3688 9.45801 1.66797 10.403 1.66797C11.3472 1.66797 16.3013 3.3688 16.9572 4.02464C17.5038 4.5713 17.4955 5.01297 17.4572 7.12964C17.4422 7.97797 17.4213 9.1338 17.4213 10.7338C17.4213 16.4688 10.863 18.5205 10.5838 18.6046C10.5247 18.623 10.4638 18.6313 10.403 18.6313Z'
+          fill='#1376F8'
+        />
+      </g>
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M9.81423 12.1014C9.6484 12.1014 9.48923 12.0355 9.37173 11.918L7.79507 10.3397C7.55173 10.0955 7.55173 9.69885 7.7959 9.45552C8.03923 9.21135 8.4359 9.21135 8.68007 9.45552L9.81423 10.5914L12.6209 7.78469C12.8651 7.54052 13.2601 7.54052 13.5042 7.78469C13.7484 8.02885 13.7484 8.42469 13.5042 8.66885L10.2559 11.918C10.1392 12.0355 9.98007 12.1014 9.81423 12.1014Z'
+        fill='#1376F8'
+      />
+    </svg>
+  ),
+  spinner: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      fill='none'
+      viewBox='0 0 24 24'
+      {...props}
+    >
+      <circle
+        className='opacity-25'
+        cx='12'
+        cy='12'
+        r='10'
+        stroke='currentColor'
+        strokeWidth='4'
+      ></circle>
+      <path
+        className='opacity-75'
+        fill='currentColor'
+        d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
+      />
     </svg>
   )
 }
