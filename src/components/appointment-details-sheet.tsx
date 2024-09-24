@@ -1,0 +1,98 @@
+import { DialogProps } from '@radix-ui/react-dialog'
+import { GroupedAppointmentsWithUsers } from './pages/appointments'
+import {
+  Sheet,
+  SheetContent,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle
+} from './ui/sheet'
+import { Button } from './common/button'
+import { formatDate } from 'date-fns'
+import Image from 'next/image'
+
+interface Props {
+  appointment: GroupedAppointmentsWithUsers['appointments'][number]
+  open: DialogProps['open']
+  onOpenChange: DialogProps['onOpenChange']
+}
+
+export const AppointmentDetailsSheet = ({
+  open,
+  onOpenChange,
+  appointment
+}: Props) => {
+  return (
+    <Sheet open={open} onOpenChange={onOpenChange}>
+      <SheetContent className='flex flex-col gap-5 px-0'>
+        <SheetHeader className='px-4'>
+          <SheetTitle>Appointment details</SheetTitle>
+        </SheetHeader>
+
+        <div className='grid gap-4 px-4'>
+          <div className='space-y-4'>
+            <h2 className='text-sm uppercase'>Patient information</h2>
+            <div className='flex items-center gap-4'>
+              <div className='relative size-20 shrink-0 overflow-hidden rounded-full'>
+                <Image
+                  src={appointment.user.imageUrl}
+                  alt='User profile image'
+                  fill
+                  className='rounded-full object-cover'
+                />
+              </div>
+
+              <div className='flex h-full flex-col justify-between'>
+                <p className='text-xl font-semibold sm:text-2xl'>
+                  {appointment.user.fullName}
+                </p>
+
+                <span className='text-gray-500'>
+                  Ranchview Richardson, California 62639
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className='mt-8 flex flex-col gap-6'>
+            <h2 className='text-sm uppercase'>Appointment detail</h2>
+
+            <div className='flex flex-col gap-3'>
+              <h3 className='text-gray-500'>Date</h3>
+              <p className='font-medium'>
+                {formatDate(
+                  appointment.appointment.start_at,
+                  "EEEE MMM d, yyyy 'at' h a"
+                )}
+              </p>
+            </div>
+
+            <div className='flex flex-col gap-3'>
+              <h3 className='text-gray-500'>Area of interest</h3>
+              <p className='font-medium'>
+                {appointment.appointment.appointment_type.name}
+              </p>
+            </div>
+
+            {appointment.appointment.reason && (
+              <div className='flex flex-col gap-3'>
+                <h3 className='text-gray-500'>Problem</h3>
+                <p className='text-justify font-medium'>
+                  {appointment.appointment.reason}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <SheetFooter className='mt-auto h-fit items-center border-t-2 pt-5 sm:justify-center'>
+          <div className='grid grid-cols-2 gap-2'>
+            <Button variant='outline'>Decline Appointment</Button>
+
+            <Button>Accept Appointment</Button>
+          </div>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  )
+}
