@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Medical Appointment Booking Platform
+
+A modern and responsive platform for booking medical appointments, built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/). The platform leverages [Clerk](https://clerk.dev/) for user management and authentication, providing a secure and seamless experience for patients and doctors.
+
+## Cover Picture
+
+![Doctor Group](./src/app/opengraph-image.jpg)
+
+## Features
+
+- **User Authentication**: Secure user registration and login powered by Clerk.
+- **Appointment Booking**: Easy-to-use interface for patients to book appointments with the doctor.
+- **Real-Time Availability**: View the doctor's up-to-date availability and schedule appointments accordingly.
+- **Appointment Management**: Patients can view, modify, and cancel their appointments.
+- **Doctor Dashboard**: A comprehensive view for the doctor to manage appointments and patient information.
+- **Responsive Design**: Fully responsive layout, optimized for both desktop and mobile devices.
+- **TypeScript**: Strongly typed components and logic for enhanced code quality and maintainability.
+- **Tailwind CSS**: Customizable and utility-first styling for fast and efficient design.
+- **Next.js**: Server-side rendering (SSR) and static site generation (SSG) for optimal performance and SEO.
+
+## Preview
+
+Check out the live preview of the application by following this link: [https://doctrin.vercel.app](https://doctrin.vercel.app)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v14+)
+- [Pnpm](https://pnpm.io)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Meschack/figma-to-code-ed2-week4.git medical-appointment-platform
+
+   cd medical-appointment-platform
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   pnpm install
+   ```
+
+3. Set up environment variables:
+
+   Create a `.env.local` file in the root of the project and add your configuration. For example:
+
+   ```bash
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="YOUR CLERK PUBLISHABLE KEY"
+   CLERK_SECRET_KEY="YOUR CLERK SECRET KEY"
+   DATABASE_URL="YOUR DATABASE URL"
+   DOCTOR_CLERK_ID="YOUR DOCTOR CLERK USER ID"
+   ```
+
+4. Start the development server:
+
+   ```bash
+   pnpm run dev
+   ```
+
+   The application should now be running on [http://localhost:3000](http://localhost:3000).
+
+### Build
+
+To create a production build:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The project is ready to be deployed on platforms like Vercel, Netlify, or any server that supports Node.js.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
 
-## Learn More
+Contributions are welcome! Please feel free to submit a pull request or open an issue.
 
-To learn more about Next.js, take a look at the following resources:
+## Acknowledgments
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Clerk](https://clerk.dev) for user authentication and management.
+- [Shadcn UI](https://ui.shadcn.com/docs) to browse reusable components.
+- The open-source community for the amazing tools and libraries.

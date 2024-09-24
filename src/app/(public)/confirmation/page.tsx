@@ -1,9 +1,8 @@
 import { Icons } from '@/components/common/icons'
 import { Wrapper } from '@/components/common/wrapper'
-import { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'Booking confirmation'
+export const metadata = {
+  title: 'Booking Confirmation'
 }
 
 const Page = () => {

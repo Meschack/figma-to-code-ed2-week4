@@ -20,7 +20,7 @@ model appointment {
   patient_clerk_id    String
   start_at            DateTime
   status              AppointmentStatus
-  reason              String            @db.VarChar(255)
+  reason              String?           @db.VarChar(255)
   appointment_type_id String            @db.VarChar(255)
   appointment_type    appointment_type  @relation(fields: [appointment_type_id], references: [id])
   createdAt           DateTime          @default(now())
