@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <ClerkProvider>
-      <html lang='en'>
+      <html lang='en' className='scrollbar-hide'>
         <body className={`${urbanist.variable} font-sans`}>{children}</body>
       </html>
     </ClerkProvider>

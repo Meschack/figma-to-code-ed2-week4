@@ -7,13 +7,14 @@ interface Props extends PropsWithChildren {}
 
 const Layout = ({ children }: Props) => {
   const userId = auth().userId
+
   const doctorId = process.env.DOCTOR_CLERK_ID
 
   return (
-    <main className='h-screen overflow-y-hidden'>
+    <main className='h-screen'>
       <AdminLayoutHeader isAdmin={userId === doctorId} />
 
-      <div className='flex h-full'>
+      <div className='flex min-h-full grow'>
         <Sidebar />
 
         <main className='grow overflow-y-auto border-l-2 p-4'>{children}</main>

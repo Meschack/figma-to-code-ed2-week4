@@ -8,7 +8,7 @@ interface Props {
 
 export const AdminLayoutHeader = ({ isAdmin }: Props) => {
   return (
-    <header className='flex items-center justify-between border-b-2 p-8'>
+    <header className='sticky top-0 flex items-center justify-between border-b-2 bg-white p-8'>
       <Link href='/'>
         <Icons.logo className='h-10' />
       </Link>

@@ -49,9 +49,11 @@ export const Header = ({ isAdmin }: Props) => {
 
           <UserProfileButton isAdmin={isAdmin} />
 
-          <Button variant='outline' asChild>
-            <Link href='booking'>Book now</Link>
-          </Button>
+          {!isAdmin && (
+            <Button variant='outline' asChild>
+              <Link href='booking'>Book now</Link>
+            </Button>
+          )}
         </div>
       </div>
     </Wrapper>

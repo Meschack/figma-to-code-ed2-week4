@@ -8,12 +8,15 @@ interface NewAppointmentData
   extends Omit<appointment, 'status' | 'id' | 'updatedAt' | 'createdAt'> {}
 
 export interface GroupedAppointments {
-  [date: string]: Prisma.appointmentGetPayload<{}>[]
+  [date: string]: Prisma.appointmentGetPayload<{
+    include: { appointment_type: { select: { name: true; duration: true } } }
+  }>[]
 }
 
 export const get = async () => {
   const appointments = await prisma.appointment.findMany({
-    orderBy: { createdAt: 'desc' }
+    orderBy: { createdAt: 'desc' },
+    include: { appointment_type: { select: { name: true, duration: true } } }
   })
 
   const groupedAppointments = appointments.reduce((acc, appointment) => {

@@ -3,8 +3,9 @@ import { Wrapper } from '@/components/common/wrapper'
 import { Booking } from '@/components/pages/booking'
 import { tommorow } from '@/data'
 import prisma from '@/lib/prisma'
-import { currentUser } from '@clerk/nextjs/server'
+import { auth, currentUser } from '@clerk/nextjs/server'
 import { formatDate } from 'date-fns'
+import { redirect } from 'next/navigation'
 import { createSearchParamsCache, parseAsString } from 'nuqs/server'
 
 const searchParamsCache = createSearchParamsCache({
@@ -19,7 +20,19 @@ interface PageProps {
 }
 
 const Page = async ({ searchParams }: PageProps) => {
+  let shouldRedirect = false
+
   try {
+    const userId = auth().userId
+
+    const doctorId = process.env.DOCTOR_CLERK_ID
+
+    if (userId === doctorId) {
+      shouldRedirect = true
+
+      return
+    }
+
     const { date, appointment_type } = searchParamsCache.parse(searchParams)
 
     const appointmentTypes = await prisma.appointment_type.findMany()
@@ -51,6 +64,10 @@ const Page = async ({ searchParams }: PageProps) => {
     )
   } catch (error) {
     return <p>Une erreur est survenue</p>
+  } finally {
+    if (shouldRedirect) {
+      redirect('/')
+    }
   }
 }
 
