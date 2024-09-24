@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import clsx from 'clsx'
 
 import { GroupedAppointments } from '@/actions/appointments'
 import { parseAsString, useQueryStates } from 'nuqs'
@@ -9,6 +8,7 @@ import { AppointmentCard } from '../appointment-card'
 import { DateFilter } from '../date-filter'
 import { DateRange } from 'react-day-picker'
 import { formatDate } from 'date-fns'
+import { AppointmentDetailsSheet } from '../appointment-details-sheet'
 
 export interface GroupedAppointmentsWithUsers {
   appointments: Array<{
@@ -52,6 +52,18 @@ export const Appointments = ({ appointments }: Props) => {
     setOpenDetailModal(!openDetailModal)
   }
 
+  const selectedAppointment = searchParams.selected
+    ? appointments
+        .find(({ appointments }) =>
+          appointments.some(
+            appointment => appointment.appointment.id === searchParams.selected
+          )
+        )
+        ?.appointments.find(
+          appointment => appointment.appointment.id === searchParams.selected
+        )
+    : undefined
+
   return (
     <>
       <div>
@@ -88,71 +100,15 @@ export const Appointments = ({ appointments }: Props) => {
         {searchParams.selected && <div className='hidden'></div>}
       </div>
 
-      {/** Detail modal */}
-      <div
-        className={clsx(
-          'fixed left-0 top-0 z-40 h-full w-full bg-[rgba(0,0,0,0.4)]',
-          openDetailModal ? 'block' : 'hidden'
-        )}
-        onClick={toggleDetailModal}
-      ></div>
-      <div
-        className={clsx(
-          'fixed top-0 z-50 h-full w-[400px] overflow-auto bg-white py-5 text-blue-950 shadow-lg duration-500 ease-linear max-[410px]:w-full',
-          openDetailModal ? 'right-0' : '-right-full'
-        )}
-      >
-        <div className='flex items-center justify-between gap-2 border-b-2 px-5 pb-3'>
-          <h2 className='text-xl font-semibold sm:text-2xl'>
-            Appointment detail
-          </h2>
-          <button onClick={toggleDetailModal}>
-            <div className='h-1 w-5 rotate-45 rounded-lg bg-blue-950'></div>
-            <div className='h-1 w-5 -translate-y-1 -rotate-45 rounded-lg bg-blue-950'></div>
-          </button>
-        </div>
-
-        <div className='mt-5 flex flex-col gap-2 px-5'>
-          <span className='text-sm uppercase'>Patient information</span>
-          <div className='flex items-center gap-4'>
-            <div className='size-20 rounded-full border-2 bg-slate-200'>
-              {/** User profile img */}
-            </div>
-            <div className='flex h-full flex-col justify-between'>
-              <h2 className='text-xl font-semibold sm:text-2xl'>
-                Mr. Watkins Rome
-              </h2>
-              <span className='text-gray-500'>
-                Ranchview Richardson, California 62639
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className='mt-8 flex flex-col gap-6 px-5'>
-          <span className='text-sm uppercase'>Appointment detail</span>
-
-          <div className='flex flex-col gap-3'>
-            <span className='text-gray-500'>Date</span>
-            <span className='font-semibold'>
-              Monday Dec 14,2021 on 08 AM - 10 AM
-            </span>
-          </div>
-
-          <div className='flex flex-col gap-3'>
-            <span className='text-gray-500'>Area of interest</span>
-            <span className='font-semibold'>Diabetes control appointment</span>
-          </div>
-
-          <div className='flex flex-col gap-3'>
-            <span className='text-gray-500'>Problem</span>
-            <span className='font-semibold'>
-              Blood sugar management is especially important for people with
-              diabetes, as chronically high blood sugar levels can lead
-            </span>
-          </div>
-        </div>
-      </div>
+      {selectedAppointment && (
+        <AppointmentDetailsSheet
+          open={!!searchParams.selected}
+          onOpenChange={value =>
+            !value && setSearchParams(prev => ({ ...prev, selected: null }))
+          }
+          appointment={selectedAppointment}
+        />
+      )}
     </>
   )
 }
