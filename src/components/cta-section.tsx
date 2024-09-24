@@ -5,7 +5,7 @@ import { Wrapper } from './common/wrapper'
 export const CTASection = () => {
   return (
     <Wrapper className='my-10 rounded-2xl bg-[#001f54] p-6 font-general-sans md:py-10'>
-      <div className='mx-auto flex max-w-7xl flex-col items-center gap-8 px-8 md:flex-row md:justify-between'>
+      <div className='mx-auto flex max-w-7xl flex-col-reverse items-center gap-8 px-8 md:flex-row md:justify-between'>
         <div className='space-y-6 text-center md:text-left'>
           <h1 className='text-3xl font-semibold text-white md:text-4xl'>
             Dental Website That's Gonna Shake <br /> The Game Rules Up.
