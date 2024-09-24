@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react'
 
 import { GroupedAppointments } from '@/actions/appointments'
 import { parseAsString, useQueryStates } from 'nuqs'
@@ -7,6 +8,7 @@ import { AppointmentCard } from '../appointment-card'
 import { DateFilter } from '../date-filter'
 import { DateRange } from 'react-day-picker'
 import { formatDate } from 'date-fns'
+import { AppointmentDetailsSheet } from '../appointment-details-sheet'
 
 export interface GroupedAppointmentsWithUsers {
   appointments: Array<{
@@ -25,6 +27,7 @@ interface Props {
 } */
 
 export const Appointments = ({ appointments }: Props) => {
+  const [openDetailModal, setOpenDetailModal] = useState(false)
   const [searchParams, setSearchParams] = useQueryStates(
     { selected: parseAsString, from: parseAsString, to: parseAsString },
     { clearOnDefault: true }
@@ -34,6 +37,7 @@ export const Appointments = ({ appointments }: Props) => {
     appointment: GroupedAppointmentsWithUsers['appointments'][number]
   ) => {
     setSearchParams({ selected: appointment.appointment.id })
+    toggleDetailModal()
   }
 
   const onDateRangeChange = (value: DateRange | undefined) => {
@@ -44,37 +48,67 @@ export const Appointments = ({ appointments }: Props) => {
     }))
   }
 
+  function toggleDetailModal() {
+    setOpenDetailModal(!openDetailModal)
+  }
+
+  const selectedAppointment = searchParams.selected
+    ? appointments
+        .find(({ appointments }) =>
+          appointments.some(
+            appointment => appointment.appointment.id === searchParams.selected
+          )
+        )
+        ?.appointments.find(
+          appointment => appointment.appointment.id === searchParams.selected
+        )
+    : undefined
+
   return (
-    <div>
-      <div className='space-y-10'>
-        <div className='flex items-center justify-between'>
-          <h1>Appointments</h1>
-
-          <DateFilter onDateRangeChange={onDateRangeChange} />
-        </div>
-
+    <>
+      <div>
         <div className='space-y-10'>
-          {appointments.map(({ appointments, date }) => {
-            return (
-              <div className='space-y-5' key={date}>
-                <h3 className='mx-auto w-fit text-xl font-semibold'>{date}</h3>
+          <div className='flex items-center justify-between'>
+            <h1>Appointments</h1>
 
-                <div className='grid grid-cols-2 gap-8'>
-                  {appointments.map(appointment => (
-                    <AppointmentCard
-                      appointment={appointment}
-                      key={appointment.appointment.id}
-                      onClick={() => onAppointmentSelect(appointment)}
-                    />
-                  ))}
+            <DateFilter onDateRangeChange={onDateRangeChange} />
+          </div>
+
+          <div className='space-y-10'>
+            {appointments.map(({ appointments, date }) => {
+              return (
+                <div className='space-y-5' key={date}>
+                  <h3 className='mx-auto w-fit text-xl font-semibold'>
+                    {date}
+                  </h3>
+
+                  <div className='grid grid-cols-2 gap-8'>
+                    {appointments.map(appointment => (
+                      <AppointmentCard
+                        appointment={appointment}
+                        key={appointment.appointment.id}
+                        onClick={() => onAppointmentSelect(appointment)}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
+
+        {searchParams.selected && <div className='hidden'></div>}
       </div>
 
-      {searchParams.selected && <div className='hidden'></div>}
-    </div>
+      {selectedAppointment && (
+        <AppointmentDetailsSheet
+          open={!!searchParams.selected}
+          onOpenChange={value =>
+            !value && setSearchParams(prev => ({ ...prev, selected: null }))
+          }
+          appointment={selectedAppointment}
+        />
+      )}
+    </>
   )
 }

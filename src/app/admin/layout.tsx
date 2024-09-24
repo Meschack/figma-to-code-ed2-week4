@@ -17,7 +17,9 @@ const Layout = ({ children }: Props) => {
       <div className='flex min-h-full grow'>
         <Sidebar />
 
-        <main className='grow overflow-y-auto border-l-2 p-4'>{children}</main>
+        <main className='mb-16 grow overflow-y-auto border-l-2 p-4'>
+          {children}
+        </main>
       </div>
     </main>
   )
