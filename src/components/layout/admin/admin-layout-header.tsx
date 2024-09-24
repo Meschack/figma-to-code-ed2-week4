@@ -1,24 +1,24 @@
-import { SignedIn, UserButton } from '@clerk/nextjs'
 import { Icons } from '../../common/icons'
 import Link from 'next/link'
+import { UserProfileButton } from '../shared/user-profile-button'
 
-interface Props {}
+interface Props {
+  isAdmin: boolean
+}
 
-export const AdminLayoutHeader = ({}: Props) => {
+export const AdminLayoutHeader = ({ isAdmin }: Props) => {
   return (
-    <header className='flex items-center justify-between border-b-2 p-8'>
+    <header className='sticky top-0 z-20 flex items-center justify-between border-b-2 bg-white p-8'>
       <Link href='/'>
         <Icons.logo className='h-10' />
       </Link>
 
       <div className='flex items-center gap-5'>
         <Icons.bell />
+
         <Icons.settings />
-        <SignedIn>
-          <UserButton
-            appearance={{ elements: { userButtonAvatarBox: 'size-10' } }}
-          />
-        </SignedIn>
+
+        <UserProfileButton isAdmin={isAdmin} />
       </div>
     </header>
   )

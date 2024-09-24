@@ -15,14 +15,15 @@ export interface SidebarElement {
 const sidebarElements: SidebarElement[] = [
   { label: 'Dashboard', path: '/admin', icon: 'dashboard' },
   { label: 'Patient List', path: '/admin/patients', icon: 'patients' },
-  { label: 'Appointment', path: '/admin/appointments', icon: 'calendar' }
+  { label: 'Appointment', path: '/admin/appointments', icon: 'calendar' },
+  { label: 'Profile', path: '/admin/profile', icon: 'patients' }
 ]
 
 export const Sidebar = ({}: Props) => {
   const pathname = usePathname()
 
   return (
-    <aside className='sticky top-0 flex h-full w-60 flex-col gap-1 p-4'>
+    <aside className='sticky top-28 flex h-full w-60 flex-col gap-1 p-4'>
       {sidebarElements.map(element => (
         <SidebarLink
           element={element}

@@ -48,8 +48,7 @@ export function ViewProfile({
           minus earum? Quisquam inventore ullam ipsum ea quod maiores blanditiis
           nihil:
           <br />
-          <br />
-          - tempora officiis mollitia placeat dolorum dicta nemo deserunt,{' '}
+          <br />- tempora officiis mollitia placeat dolorum dicta nemo deserunt,{' '}
           <br />
           - amet harum quia dolorem error quibusdam non aspernatur voluptatibus
           iste <br />

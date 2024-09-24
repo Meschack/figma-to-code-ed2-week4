@@ -1,10 +1,12 @@
 'use client'
+
 import { Button } from '@/components/common/button'
 import { Icons } from '@/components/common/icons'
 import { Wrapper } from '@/components/common/wrapper'
-import { SignInButton, UserButton } from '@clerk/clerk-react'
-import { SignedIn, SignedOut } from '@clerk/nextjs'
+import { SignInButton } from '@clerk/clerk-react'
+import { SignedOut } from '@clerk/nextjs'
 import Link from 'next/link'
+import { UserProfileButton } from '../shared/user-profile-button'
 
 const menuItems = [
   { label: 'Home', href: '/' },
@@ -13,7 +15,11 @@ const menuItems = [
   { label: 'Blog', href: '/blog' }
 ]
 
-export const Header = () => {
+interface Props {
+  isAdmin: boolean
+}
+
+export const Header = ({ isAdmin }: Props) => {
   return (
     <Wrapper>
       <div className='flex items-center justify-between rounded-lg bg-doctrin-light-blue px-10 py-5'>
@@ -41,15 +47,13 @@ export const Header = () => {
             </SignInButton>
           </SignedOut>
 
-          <SignedIn>
-            <UserButton
-              appearance={{ elements: { userButtonAvatarBox: 'size-10' } }}
-            />
-          </SignedIn>
+          <UserProfileButton isAdmin={isAdmin} />
 
-          <Button variant='outline' asChild>
-            <Link href='booking'>Book now</Link>
-          </Button>
+          {!isAdmin && (
+            <Button variant='outline' asChild>
+              <Link href='booking'>Book now</Link>
+            </Button>
+          )}
         </div>
       </div>
     </Wrapper>
