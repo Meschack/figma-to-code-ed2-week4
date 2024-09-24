@@ -4,6 +4,9 @@ import { GroupedAppointments } from '@/actions/appointments'
 import { parseAsString, useQueryStates } from 'nuqs'
 import { ClerkUserImportantElements } from '@/types/user'
 import { AppointmentCard } from '../appointment-card'
+import { DateFilter } from '../date-filter'
+import { DateRange } from 'react-day-picker'
+import { formatDate } from 'date-fns'
 
 export interface GroupedAppointmentsWithUsers {
   appointments: Array<{
@@ -23,7 +26,7 @@ interface Props {
 
 export const Appointments = ({ appointments }: Props) => {
   const [searchParams, setSearchParams] = useQueryStates(
-    { selected: parseAsString },
+    { selected: parseAsString, from: parseAsString, to: parseAsString },
     { clearOnDefault: true }
   )
 
@@ -33,10 +36,22 @@ export const Appointments = ({ appointments }: Props) => {
     setSearchParams({ selected: appointment.appointment.id })
   }
 
+  const onDateRangeChange = (value: DateRange | undefined) => {
+    setSearchParams(prev => ({
+      ...prev,
+      from: value && value.from ? formatDate(value.from, 'yyyy-MM-dd') : null,
+      to: value && value.to ? formatDate(value.to, 'yyyy-MM-dd') : null
+    }))
+  }
+
   return (
     <div>
       <div className='space-y-10'>
-        <h1>Appointments</h1>
+        <div className='flex items-center justify-between'>
+          <h1>Appointments</h1>
+
+          <DateFilter onDateRangeChange={onDateRangeChange} />
+        </div>
 
         <div className='space-y-10'>
           {appointments.map(({ appointments, date }) => {
