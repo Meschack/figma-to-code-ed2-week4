@@ -15,7 +15,8 @@ export interface SidebarElement {
 const sidebarElements: SidebarElement[] = [
   { label: 'Dashboard', path: '/admin', icon: 'dashboard' },
   { label: 'Patient List', path: '/admin/patients', icon: 'patients' },
-  { label: 'Appointment', path: '/admin/appointments', icon: 'calendar' }
+  { label: 'Appointment', path: '/admin/appointments', icon: 'calendar' },
+  { label: 'Profile', path: '/admin/profile', icon: 'patients' }
 ]
 
 export const Sidebar = ({}: Props) => {
