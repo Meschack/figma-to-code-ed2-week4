@@ -27,12 +27,12 @@ interface Props {
   appointments: Array<GroupedAppointmentsWithUsers>
 }
 
-interface State {
+/* interface State {
   selectedAppointment?: GroupedAppointmentsWithUsers['appointments'][number]
-}
+} */
 
 export const Appointments = ({ appointments }: Props) => {
-  const [searchParams, setSearchParams] = useQueryStates(
+  const [_, setSearchParams] = useQueryStates(
     { selected: parseAsString },
     { clearOnDefault: true }
   )

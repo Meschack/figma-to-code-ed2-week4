@@ -21,6 +21,41 @@ export const servicesData = [
   }
 ]
 
+export const testimonials = [
+  {
+    name: 'Thomas Daniel',
+    role: 'Orthodontist',
+    image: '/images/thomas-daniel.svg',
+    message:
+      'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
+    rating: 5
+  },
+  {
+    name: 'Alena Alex',
+    role: 'Endodontist',
+    image: '/images/alena.svg',
+    message:
+      'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
+    rating: 5
+  },
+  {
+    name: 'Thomas Edison',
+    role: 'Pediatric Dentist',
+    image: '/images/thomas-edison.svg',
+    message:
+      'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
+    rating: 5
+  },
+  {
+    name: 'Jane Doe',
+    role: 'Oral Surgeon',
+    image: '/images/thomas-edison.svg',
+    message:
+      'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
+    rating: 5
+  }
+]
+
 export const specialists = [
   {
     name: 'Jim Carry',

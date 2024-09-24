@@ -49,6 +49,6 @@ const config: Config = {
       animation: { shimmer: 'shimmer 2s infinite' }
     }
   },
-  plugins: []
+  plugins: [require('tailwindcss-animate')]
 }
 export default config
