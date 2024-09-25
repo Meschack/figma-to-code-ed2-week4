@@ -1,10 +1,12 @@
 import { get } from '@/actions/appointments'
+import { getClerkUserInformations } from '@/actions/users'
 import { Appointments } from '@/components/pages/appointments'
-import { clerkClient } from '@/lib/clerk-client'
 
-interface Props {}
+export const metadata = {
+  title: 'Appointments'
+}
 
-const Page = async ({}: Props) => {
+const Page = async () => {
   try {
     const appointments = await get()
 
@@ -14,20 +16,11 @@ const Page = async ({}: Props) => {
 
         const appointmentAndUser = await Promise.all(
           keyAppointments.map(async appointment => {
-            const user = await clerkClient.users.getUser(
+            const user = await getClerkUserInformations(
               appointment.patient_clerk_id
             )
 
-            const requiredUserElements = {
-              fullName: user.fullName,
-              hasImage: user.hasImage,
-              imageUrl: user.imageUrl
-            }
-
-            return {
-              appointment,
-              user: requiredUserElements
-            }
+            return { appointment, user }
           })
         )
 

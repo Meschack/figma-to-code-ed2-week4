@@ -316,6 +316,57 @@ export const Icons = {
       />
     </svg>
   ),
+  doubleChevronLeft: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='m17 17-5-5 5-5' />
+      <path d='m10 17-5-5 5-5' />
+    </svg>
+  ),
+  doubleChevronRight: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='m6 17 5-5-5-5' />
+      <path d='m13 17 5-5-5-5' />
+    </svg>
+  ),
+  chevronUpDown: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='m7 15 5 5 5-5' />
+      <path d='m7 9 5-5 5 5' />
+    </svg>
+  ),
   dashboard: (props: IconProps) => (
     <svg
       width='24'

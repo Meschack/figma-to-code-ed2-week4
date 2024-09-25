@@ -1,5 +1,4 @@
 'use client'
-import { useState } from 'react'
 
 import { GroupedAppointments } from '@/actions/appointments'
 import { parseAsString, useQueryStates } from 'nuqs'
@@ -22,12 +21,7 @@ interface Props {
   appointments: Array<GroupedAppointmentsWithUsers>
 }
 
-/* interface State {
-  selectedAppointment?: GroupedAppointmentsWithUsers['appointments'][number]
-} */
-
 export const Appointments = ({ appointments }: Props) => {
-  const [openDetailModal, setOpenDetailModal] = useState(false)
   const [searchParams, setSearchParams] = useQueryStates(
     { selected: parseAsString, from: parseAsString, to: parseAsString },
     { clearOnDefault: true }
@@ -37,7 +31,6 @@ export const Appointments = ({ appointments }: Props) => {
     appointment: GroupedAppointmentsWithUsers['appointments'][number]
   ) => {
     setSearchParams({ selected: appointment.appointment.id })
-    toggleDetailModal()
   }
 
   const onDateRangeChange = (value: DateRange | undefined) => {
@@ -46,10 +39,6 @@ export const Appointments = ({ appointments }: Props) => {
       from: value && value.from ? formatDate(value.from, 'yyyy-MM-dd') : null,
       to: value && value.to ? formatDate(value.to, 'yyyy-MM-dd') : null
     }))
-  }
-
-  function toggleDetailModal() {
-    setOpenDetailModal(!openDetailModal)
   }
 
   const selectedAppointment = searchParams.selected
@@ -96,8 +85,6 @@ export const Appointments = ({ appointments }: Props) => {
             })}
           </div>
         </div>
-
-        {searchParams.selected && <div className='hidden'></div>}
       </div>
 
       {selectedAppointment && (

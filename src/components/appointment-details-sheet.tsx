@@ -47,9 +47,7 @@ export const AppointmentDetailsSheet = ({
                   {appointment.user.fullName}
                 </p>
 
-                <span className='text-gray-500'>
-                  Ranchview Richardson, California 62639
-                </span>
+                <span className='text-gray-500'>{appointment.user.email}</span>
               </div>
             </div>
           </div>
