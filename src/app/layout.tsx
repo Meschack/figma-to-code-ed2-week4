@@ -4,6 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { urbanist } from './fonts'
 import { PropsWithChildren } from 'react'
 import { siteConfig } from '@/config/site'
+import { Toaster } from '@/components/ui/sonner'
 
 export const metadata: Metadata = {
   title: {
@@ -60,6 +61,8 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
     <ClerkProvider>
       <html lang='en' className='scrollbar-hide'>
         <body className={`${urbanist.variable} font-sans`}>{children}</body>
+
+        <Toaster richColors />
       </html>
     </ClerkProvider>
   )

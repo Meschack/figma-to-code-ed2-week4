@@ -7,20 +7,30 @@ import {
   SheetHeader,
   SheetTitle
 } from './ui/sheet'
-import { Button } from './common/button'
 import { formatDate } from 'date-fns'
 import Image from 'next/image'
+import { LoadingButton } from './common/loading-button'
+import { AppointmentStatus } from '@prisma/client'
 
 interface Props {
   appointment: GroupedAppointmentsWithUsers['appointments'][number]
   open: DialogProps['open']
   onOpenChange: DialogProps['onOpenChange']
+  onManage: (
+    action: 'accept' | 'cancel' | 'finish',
+    appointment: string
+  ) => void
+  isManaging?: 'accept' | 'cancel' | 'finish'
+  managingAppointment?: string
 }
 
 export const AppointmentDetailsSheet = ({
   open,
   onOpenChange,
-  appointment
+  appointment,
+  onManage,
+  isManaging,
+  managingAppointment
 }: Props) => {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -83,13 +93,42 @@ export const AppointmentDetailsSheet = ({
           </div>
         </div>
 
-        <SheetFooter className='mt-auto h-fit items-center border-t-2 pt-5 sm:justify-center'>
-          <div className='grid grid-cols-2 gap-2'>
-            <Button variant='outline'>Decline Appointment</Button>
+        {appointment.appointment.status === AppointmentStatus.PENDING && (
+          <SheetFooter className='mt-auto h-fit items-center border-t-2 pt-5 sm:justify-center'>
+            <div className='grid grid-cols-2 gap-2'>
+              <LoadingButton
+                onClick={event => {
+                  event.stopPropagation()
 
-            <Button>Accept Appointment</Button>
-          </div>
-        </SheetFooter>
+                  onManage('cancel', appointment.appointment.id)
+                }}
+                variant='outline'
+                loading={
+                  !!isManaging &&
+                  isManaging === 'cancel' &&
+                  managingAppointment === appointment.appointment.id
+                }
+              >
+                Decline Appointment
+              </LoadingButton>
+
+              <LoadingButton
+                onClick={event => {
+                  event.stopPropagation()
+
+                  onManage('accept', appointment.appointment.id)
+                }}
+                loading={
+                  !!isManaging &&
+                  isManaging === 'accept' &&
+                  managingAppointment === appointment.appointment.id
+                }
+              >
+                Accept Appointment
+              </LoadingButton>
+            </div>
+          </SheetFooter>
+        )}
       </SheetContent>
     </Sheet>
   )

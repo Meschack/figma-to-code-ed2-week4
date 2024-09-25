@@ -1,6 +1,6 @@
 'use client'
 
-import { GroupedAppointments } from '@/actions/appointments'
+import { GroupedAppointments, manage } from '@/actions/appointments'
 import { parseAsString, useQueryStates } from 'nuqs'
 import { ClerkUserImportantElements } from '@/types/user'
 import { AppointmentCard } from '../appointment-card'
@@ -8,6 +8,8 @@ import { DateFilter } from '../date-filter'
 import { DateRange } from 'react-day-picker'
 import { formatDate } from 'date-fns'
 import { AppointmentDetailsSheet } from '../appointment-details-sheet'
+import { toast } from 'sonner'
+import { useState } from 'react'
 
 export interface GroupedAppointmentsWithUsers {
   appointments: Array<{
@@ -21,11 +23,18 @@ interface Props {
   appointments: Array<GroupedAppointmentsWithUsers>
 }
 
+interface State {
+  isManaging?: 'accept' | 'cancel' | 'finish'
+  managingAppointment?: string
+}
+
 export const Appointments = ({ appointments }: Props) => {
   const [searchParams, setSearchParams] = useQueryStates(
     { selected: parseAsString, from: parseAsString, to: parseAsString },
     { clearOnDefault: true }
   )
+
+  const [state, setState] = useState<State>({})
 
   const onAppointmentSelect = (
     appointment: GroupedAppointmentsWithUsers['appointments'][number]
@@ -39,6 +48,33 @@ export const Appointments = ({ appointments }: Props) => {
       from: value && value.from ? formatDate(value.from, 'yyyy-MM-dd') : null,
       to: value && value.to ? formatDate(value.to, 'yyyy-MM-dd') : null
     }))
+  }
+
+  const onAppointmentManage = async (
+    action: 'accept' | 'cancel' | 'finish',
+    appointment: string
+  ) => {
+    try {
+      setState(prev => ({
+        ...prev,
+        isManaging: action,
+        managingAppointment: appointment
+      }))
+
+      await manage(action, appointment)
+
+      toast.success(`The appointment has been marked as ${action}ed !`)
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error(error.message)
+      }
+    } finally {
+      setState(prev => ({
+        ...prev,
+        isManaging: undefined,
+        managingAppointment: undefined
+      }))
+    }
   }
 
   const selectedAppointment = searchParams.selected
@@ -77,6 +113,9 @@ export const Appointments = ({ appointments }: Props) => {
                         appointment={appointment}
                         key={appointment.appointment.id}
                         onClick={() => onAppointmentSelect(appointment)}
+                        onManage={onAppointmentManage}
+                        isManaging={state.isManaging}
+                        managingAppointment={state.managingAppointment}
                       />
                     ))}
                   </div>
@@ -94,6 +133,9 @@ export const Appointments = ({ appointments }: Props) => {
             !value && setSearchParams(prev => ({ ...prev, selected: null }))
           }
           appointment={selectedAppointment}
+          onManage={onAppointmentManage}
+          isManaging={state.isManaging}
+          managingAppointment={state.managingAppointment}
         />
       )}
     </>

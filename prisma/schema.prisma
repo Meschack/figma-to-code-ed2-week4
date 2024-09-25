@@ -8,11 +8,11 @@ datasource db {
 }
 
 model doctor_info {
-  id          String        @id @default(cuid())
-  first_name  String        @db.VarChar(255)
-  last_name   String        @db.VarChar(255)
-  location    String        @db.VarChar(255)
-  speciality  String        @db.VarChar(255)
+  id          String @id @default(cuid())
+  first_name  String @db.VarChar(255)
+  last_name   String @db.VarChar(255)
+  location    String @db.VarChar(255)
+  speciality  String @db.VarChar(255)
   description String
 }
 
@@ -28,7 +28,7 @@ model appointment {
   id                  String            @id @default(cuid())
   patient_clerk_id    String
   start_at            DateTime
-  status              AppointmentStatus
+  status              AppointmentStatus @default(PENDING)
   reason              String?           @db.VarChar(255)
   appointment_type_id String            @db.VarChar(255)
   appointment_type    appointment_type  @relation(fields: [appointment_type_id], references: [id])
@@ -37,6 +37,7 @@ model appointment {
 }
 
 enum AppointmentStatus {
+  PENDING
   SCHEDULED
   CANCELLED
   COMPLETED
