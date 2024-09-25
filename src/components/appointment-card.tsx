@@ -1,12 +1,19 @@
 import Image from 'next/image'
-import { Button } from './common/button'
 import { addMinutes } from 'date-fns'
 import { cn } from '@/lib/utils'
 import { GroupedAppointmentsWithUsers } from './pages/appointments'
 import { ComponentProps } from 'react'
+import { LoadingButton } from './common/loading-button'
+import { AppointmentStatus } from '@prisma/client'
 
 interface AppointmentCardProps extends ComponentProps<'div'> {
   appointment: GroupedAppointmentsWithUsers['appointments'][number]
+  onManage: (
+    action: 'accept' | 'cancel' | 'finish',
+    appointment: string
+  ) => void
+  isManaging?: 'accept' | 'cancel' | 'finish'
+  managingAppointment?: string
 }
 
 const options = {
@@ -19,6 +26,9 @@ export const AppointmentCard = ({
   appointment,
   className,
   onClick,
+  onManage,
+  isManaging,
+  managingAppointment,
   ...rest
 }: AppointmentCardProps) => {
   const endAt = addMinutes(
@@ -72,10 +82,40 @@ export const AppointmentCard = ({
         <p>{appointment.appointment.reason || 'No reason provided !'}</p>
       </main>
 
-      <footer className='grid grid-cols-2 gap-5'>
-        <Button variant='outline'>Decline Appointment</Button>
-        <Button>Accept Appointment</Button>
-      </footer>
+      {appointment.appointment.status === AppointmentStatus.PENDING && (
+        <footer className='grid grid-cols-2 gap-5'>
+          <LoadingButton
+            onClick={event => {
+              event.stopPropagation()
+
+              onManage('cancel', appointment.appointment.id)
+            }}
+            variant='outline'
+            loading={
+              !!isManaging &&
+              isManaging === 'cancel' &&
+              managingAppointment === appointment.appointment.id
+            }
+          >
+            Decline Appointment
+          </LoadingButton>
+
+          <LoadingButton
+            onClick={event => {
+              event.stopPropagation()
+
+              onManage('accept', appointment.appointment.id)
+            }}
+            loading={
+              !!isManaging &&
+              isManaging === 'accept' &&
+              managingAppointment === appointment.appointment.id
+            }
+          >
+            Accept Appointment
+          </LoadingButton>
+        </footer>
+      )}
     </div>
   )
 }
