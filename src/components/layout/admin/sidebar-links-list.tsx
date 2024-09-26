@@ -9,8 +9,7 @@ import { cn } from '@/lib/utils'
 const sidebarElements: SidebarElement[] = [
   { label: 'Dashboard', path: '/admin', icon: 'dashboard' },
   { label: 'Patient List', path: '/admin/patients', icon: 'patients' },
-  { label: 'Appointment', path: '/admin/appointments', icon: 'calendar' },
-  { label: 'Profile', path: '/admin/profile', icon: 'patients' }
+  { label: 'Appointment', path: '/admin/appointments', icon: 'calendar' }
 ]
 
 export const SidebarLinksList = ({
