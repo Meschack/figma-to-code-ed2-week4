@@ -6,9 +6,7 @@ import { AppointmentsMontlyStatistics } from '@/components/appointments-montly-s
 import { AppointmentsStatistics } from '@/components/appointments-statistics'
 import { currentUser } from '@clerk/nextjs/server'
 
-interface Props {}
-
-const Page = async ({}: Props) => {
+const Page = async () => {
   try {
     const monthlyStatistics = await getAppointmentsPerMonth()
     const appointmentsByStatus = await getAppointmentsByStatus()

@@ -1,27 +1,22 @@
 import { AdminLayoutHeader } from '@/components/layout/admin/admin-layout-header'
 import { Sidebar } from '@/components/layout/admin/sidebar'
-import { auth } from '@clerk/nextjs/server'
 import { PropsWithChildren } from 'react'
 
 interface Props extends PropsWithChildren {}
 
 const Layout = ({ children }: Props) => {
-  const userId = auth().userId
-
-  const doctorId = process.env.DOCTOR_CLERK_ID
-
   return (
-    <main className='h-screen'>
-      <AdminLayoutHeader isAdmin={userId === doctorId} />
+    <div className='flex h-screen w-screen overflow-hidden'>
+      <Sidebar />
 
-      <div className='flex min-h-full grow'>
-        <Sidebar />
+      <main className='flex w-full grow-0 flex-col'>
+        <AdminLayoutHeader />
 
-        <main className='mb-16 grow overflow-y-auto border-l-2 p-4'>
+        <div className='scrollbar-hide w-full grow-0 overflow-scroll px-5 py-6 md:px-12 xl:px-6'>
           {children}
-        </main>
-      </div>
-    </main>
+        </div>
+      </main>
+    </div>
   )
 }
 

@@ -97,7 +97,7 @@ export const AppointmentCard = ({
               managingAppointment === appointment.appointment.id
             }
           >
-            Decline Appointment
+            Decline
           </LoadingButton>
 
           <LoadingButton
@@ -112,7 +112,7 @@ export const AppointmentCard = ({
               managingAppointment === appointment.appointment.id
             }
           >
-            Accept Appointment
+            Accept
           </LoadingButton>
         </footer>
       )}

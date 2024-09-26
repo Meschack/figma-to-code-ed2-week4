@@ -72,8 +72,8 @@ export function EditProfile({
         data[nameValue] = value || ''
       }
     }
+
     // will add a model to save these infos
-    console.log(data)
     toggleEditView()
   }
 
