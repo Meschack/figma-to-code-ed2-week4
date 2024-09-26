@@ -41,7 +41,8 @@ export const AppointmentTypeSelector = ({
           aria-expanded={open}
           className='w-full min-w-[300px] justify-between border-gray-400 bg-transparent text-gray-800 hover:border-muted-foreground hover:bg-white/75 hover:text-muted-foreground'
         >
-          {selected?.name}
+          {selected?.name || 'Select an appointment type'}
+
           <Icons.chevronDown
             className={cn(
               'ml-2 size-4 shrink-0 opacity-50',

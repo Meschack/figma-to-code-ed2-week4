@@ -12,10 +12,15 @@ const sidebarElements: SidebarElement[] = [
   { label: 'Appointment', path: '/admin/appointments', icon: 'calendar' }
 ]
 
+interface SidebarLinksListProps extends ComponentProps<'div'> {
+  onLinkClick?: () => void
+}
+
 export const SidebarLinksList = ({
+  onLinkClick,
   className,
   ...rest
-}: ComponentProps<'div'>) => {
+}: SidebarLinksListProps) => {
   const pathname = usePathname()
 
   return (
@@ -25,6 +30,7 @@ export const SidebarLinksList = ({
           element={element}
           isActive={pathname === element.path}
           key={element.path}
+          onClick={onLinkClick}
         />
       ))}
     </div>

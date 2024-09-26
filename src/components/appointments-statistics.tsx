@@ -12,8 +12,6 @@ import { AppointmentStatus } from '@prisma/client'
 import { ComponentProps, useMemo } from 'react'
 import { cn } from '@/lib/utils'
 
-export const description = 'A donut chart with text'
-
 const chartConfig: Record<'count' | AppointmentStatus, ChartConfig[number]> = {
   count: { label: 'Count' },
   PENDING: { label: 'Pending', color: 'hsl(var(--appointment-pending))' },
@@ -41,7 +39,9 @@ export const AppointmentsStatistics = ({ data, className, ...rest }: Props) => {
           Appointments count by type
         </h3>
 
-        <p className='text-sm text-muted-foreground'>January - June 2024</p>
+        <p className='text-sm text-muted-foreground'>
+          Visual representation of appointment distribution by status
+        </p>
       </header>
 
       <main className='flex flex-1 pb-0'>
@@ -97,12 +97,7 @@ export const AppointmentsStatistics = ({ data, className, ...rest }: Props) => {
       </main>
 
       <footer>
-        <div
-          className='mt-4 grid gap-2'
-          style={{
-            gridTemplateColumns: `repeat(${data.length}, minmax(0, 1fr))`
-          }}
-        >
+        <div className='mt-4 flex flex-wrap items-center justify-between gap-4'>
           {data.map(item => (
             <LegendItem
               key={item.status}

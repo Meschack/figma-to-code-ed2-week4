@@ -41,7 +41,7 @@ export const AppointmentCard = ({
   return (
     <div
       className={cn(
-        'cursor-pointer space-y-5 rounded-md border p-5 hover:bg-muted',
+        'flex cursor-pointer flex-col gap-5 rounded-md border p-5 hover:bg-muted',
         className
       )}
       onClick={onClick}
@@ -79,60 +79,64 @@ export const AppointmentCard = ({
         </div>
       </header>
 
-      <main className='space-y-3'>
-        <p>{appointment.appointment.appointment_type.name}</p>
-        <p>{appointment.appointment.reason || 'No reason provided !'}</p>
-      </main>
+      <main className='flex grow cursor-pointer flex-col justify-between gap-5'>
+        <section className='space-y-3'>
+          <p className='font-medium text-muted-foreground'>
+            {appointment.appointment.appointment_type.name}
+          </p>
+          <p>{appointment.appointment.reason || 'No reason provided !'}</p>
+        </section>
 
-      {!canManage && (
-        <p>
-          Status :{' '}
-          <span
-            className='font-medium'
-            style={{
-              color: `hsl(var(--appointment-${appointment.appointment.status.toLowerCase()}))`
-            }}
-          >
-            {appointment.appointment.status}
-          </span>
-        </p>
-      )}
-
-      {appointment.appointment.status === AppointmentStatus.PENDING &&
-        canManage && (
-          <footer className='grid grid-cols-2 gap-5'>
-            <LoadingButton
-              onClick={event => {
-                event.stopPropagation()
-
-                onManage('cancel', appointment.appointment.id)
+        {!canManage && (
+          <p>
+            Status :{' '}
+            <span
+              className='font-medium'
+              style={{
+                color: `hsl(var(--appointment-${appointment.appointment.status.toLowerCase()}))`
               }}
-              variant='outline'
-              loading={
-                !!isManaging &&
-                isManaging === 'cancel' &&
-                managingAppointment === appointment.appointment.id
-              }
             >
-              Decline
-            </LoadingButton>
-
-            <LoadingButton
-              onClick={event => {
-                event.stopPropagation()
-
-                onManage('accept', appointment.appointment.id)
-              }}
-              loading={
-                !!isManaging &&
-                isManaging === 'accept' &&
-                managingAppointment === appointment.appointment.id
-              }
-            >
-              Accept
-            </LoadingButton>
-          </footer>
+              {appointment.appointment.status}
+            </span>
+          </p>
         )}
+
+        {appointment.appointment.status === AppointmentStatus.PENDING &&
+          canManage && (
+            <footer className='grid grid-cols-2 gap-5'>
+              <LoadingButton
+                onClick={event => {
+                  event.stopPropagation()
+
+                  onManage('cancel', appointment.appointment.id)
+                }}
+                variant='outline'
+                loading={
+                  !!isManaging &&
+                  isManaging === 'cancel' &&
+                  managingAppointment === appointment.appointment.id
+                }
+              >
+                Decline
+              </LoadingButton>
+
+              <LoadingButton
+                onClick={event => {
+                  event.stopPropagation()
+
+                  onManage('accept', appointment.appointment.id)
+                }}
+                loading={
+                  !!isManaging &&
+                  isManaging === 'accept' &&
+                  managingAppointment === appointment.appointment.id
+                }
+              >
+                Accept
+              </LoadingButton>
+            </footer>
+          )}
+      </main>
     </div>
   )
 }
