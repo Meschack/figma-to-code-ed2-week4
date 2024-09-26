@@ -33,7 +33,7 @@ export const DateFilter = ({
               !date && 'text-muted-foreground'
             )}
           >
-            <Icons.calendar className='mr-2 h-4 w-4' />
+            <Icons.calendar className='mr-2 size-4' />
             {date?.from ? (
               date.to ? (
                 <>

@@ -38,11 +38,11 @@ export const Services = () => {
       </section>
 
       <section className='px-4 py-10 pt-4'>
-        <div className='flex flex-col items-center justify-between gap-8 lg:flex-row'>
+        <div className='flex flex-col-reverse items-center justify-between gap-8 lg:flex-row'>
           <div className='flex flex-col space-y-7'>
             <h2 className='text-left text-4xl font-semibold leading-tight'>
-              Leave Your Worries At The <br /> Door And Enjoy A Healthier,{' '}
-              <br /> More Precise Smile
+              Leave Your Worries At The Door And Enjoy A Healthier,{' '}
+              More Precise Smile
             </h2>
 
             <p className='max-w-lg text-body-text'>
@@ -61,15 +61,16 @@ export const Services = () => {
       </section>
 
       <section className='rounded-lg bg-light-blue px-3 py-6 pt-4'>
-        <div className='mx-auto flex max-w-full flex-col justify-around py-8 lg:flex-row'>
+        <div className='mx-auto flex max-w-full flex-col justify-around py-8 lg:flex-row gap-8 px-2'>
           <Image
             src='/images/reasons-section.svg'
             alt=''
             width={400}
             height={400}
+            className='mx-auto'
           />
 
-          <div className='max-w-lg space-y-4'>
+          <div className='max-w-lg space-y-4 mx-auto'>
             <h2 className='text-3xl font-semibold'>
               Why choose Smile for all your dental treatments?
             </h2>
