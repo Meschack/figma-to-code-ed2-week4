@@ -1,14 +1,20 @@
 import { get } from '@/actions/appointments'
 import { getClerkUserInformations } from '@/actions/users'
+import { Wrapper } from '@/components/common/wrapper'
 import { Appointments } from '@/components/pages/appointments'
+import { auth } from '@clerk/nextjs/server'
 
-export const metadata = {
-  title: 'Appointments'
-}
+interface Props {}
 
-const Page = async () => {
+const Page = async ({}: Props) => {
   try {
-    const appointments = await get()
+    const { userId } = auth()
+
+    if (!userId) return null
+
+    const appointments = await get(userId)
+
+    const user = await getClerkUserInformations(userId)
 
     const appointmentsWithUsers = await Promise.all(
       Object.keys(appointments).map(async date => {
@@ -16,10 +22,6 @@ const Page = async () => {
 
         const appointmentAndUser = await Promise.all(
           keyAppointments.map(async appointment => {
-            const user = await getClerkUserInformations(
-              appointment.patient_clerk_id
-            )
-
             return { appointment, user }
           })
         )
@@ -29,11 +31,11 @@ const Page = async () => {
     )
 
     return (
-      <div className='space-y-10'>
-        <h1>Appointments</h1>
+      <Wrapper>
+        <h1>My appointments</h1>
 
-        <Appointments canManage appointments={appointmentsWithUsers} />
-      </div>
+        <Appointments canManage={false} appointments={appointmentsWithUsers} />
+      </Wrapper>
     )
   } catch (error) {}
 }

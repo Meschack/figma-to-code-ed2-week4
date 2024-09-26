@@ -16,9 +16,10 @@ export interface GroupedAppointments {
   }>[]
 }
 
-export const get = async () => {
+export const get = async (userId?: string) => {
   const appointments = await prisma.appointment.findMany({
     orderBy: { start_at: 'desc' },
+    where: { patient_clerk_id: userId },
     include: { appointment_type: { select: { name: true, duration: true } } }
   })
 

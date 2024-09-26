@@ -18,6 +18,7 @@ export interface GroupedAppointmentsWithUsers {
 
 interface Props {
   appointments: Array<GroupedAppointmentsWithUsers>
+  canManage: boolean
 }
 
 interface State {
@@ -25,7 +26,7 @@ interface State {
   managingAppointment?: string
 }
 
-export const Appointments = ({ appointments }: Props) => {
+export const Appointments = ({ appointments, canManage }: Props) => {
   const [searchParams, setSearchParams] = useQueryStates(
     { selected: parseAsString, from: parseAsString, to: parseAsString },
     { clearOnDefault: true }
@@ -80,37 +81,27 @@ export const Appointments = ({ appointments }: Props) => {
 
   return (
     <>
-      <div>
-        <div className='space-y-10'>
-          <div className='flex items-center justify-between'>
-            <h1>Appointments</h1>
-          </div>
+      <div className='space-y-10'>
+        {appointments.map(({ appointments, date }) => {
+          return (
+            <div className='space-y-5' key={date}>
+              <h3 className='mx-auto w-fit text-xl font-semibold'>{date}</h3>
 
-          <div className='space-y-10'>
-            {appointments.map(({ appointments, date }) => {
-              return (
-                <div className='space-y-5' key={date}>
-                  <h3 className='mx-auto w-fit text-xl font-semibold'>
-                    {date}
-                  </h3>
-
-                  <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
-                    {appointments.map(appointment => (
-                      <AppointmentCard
-                        appointment={appointment}
-                        key={appointment.appointment.id}
-                        onClick={() => onAppointmentSelect(appointment)}
-                        onManage={onAppointmentManage}
-                        isManaging={state.isManaging}
-                        managingAppointment={state.managingAppointment}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
+              <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+                {appointments.map(appointment => (
+                  <AppointmentCard
+                    appointment={appointment}
+                    key={appointment.appointment.id}
+                    onClick={() => onAppointmentSelect(appointment)}
+                    onManage={onAppointmentManage}
+                    isManaging={state.isManaging}
+                    managingAppointment={state.managingAppointment}
+                  />
+                ))}
+              </div>
+            </div>
+          )
+        })}
       </div>
 
       {selectedAppointment && (

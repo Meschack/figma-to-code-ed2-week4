@@ -14,6 +14,7 @@ interface AppointmentCardProps extends ComponentProps<'div'> {
   ) => void
   isManaging?: 'accept' | 'cancel' | 'finish'
   managingAppointment?: string
+  canManage?: boolean
 }
 
 const options = {
@@ -29,6 +30,7 @@ export const AppointmentCard = ({
   onManage,
   isManaging,
   managingAppointment,
+  canManage,
   ...rest
 }: AppointmentCardProps) => {
   const endAt = addMinutes(
@@ -82,40 +84,55 @@ export const AppointmentCard = ({
         <p>{appointment.appointment.reason || 'No reason provided !'}</p>
       </main>
 
-      {appointment.appointment.status === AppointmentStatus.PENDING && (
-        <footer className='grid grid-cols-2 gap-5'>
-          <LoadingButton
-            onClick={event => {
-              event.stopPropagation()
-
-              onManage('cancel', appointment.appointment.id)
+      {!canManage && (
+        <p>
+          Status :{' '}
+          <span
+            className='font-medium'
+            style={{
+              color: `hsl(var(--appointment-${appointment.appointment.status.toLowerCase()}))`
             }}
-            variant='outline'
-            loading={
-              !!isManaging &&
-              isManaging === 'cancel' &&
-              managingAppointment === appointment.appointment.id
-            }
           >
-            Decline
-          </LoadingButton>
-
-          <LoadingButton
-            onClick={event => {
-              event.stopPropagation()
-
-              onManage('accept', appointment.appointment.id)
-            }}
-            loading={
-              !!isManaging &&
-              isManaging === 'accept' &&
-              managingAppointment === appointment.appointment.id
-            }
-          >
-            Accept
-          </LoadingButton>
-        </footer>
+            {appointment.appointment.status}
+          </span>
+        </p>
       )}
+
+      {appointment.appointment.status === AppointmentStatus.PENDING &&
+        canManage && (
+          <footer className='grid grid-cols-2 gap-5'>
+            <LoadingButton
+              onClick={event => {
+                event.stopPropagation()
+
+                onManage('cancel', appointment.appointment.id)
+              }}
+              variant='outline'
+              loading={
+                !!isManaging &&
+                isManaging === 'cancel' &&
+                managingAppointment === appointment.appointment.id
+              }
+            >
+              Decline
+            </LoadingButton>
+
+            <LoadingButton
+              onClick={event => {
+                event.stopPropagation()
+
+                onManage('accept', appointment.appointment.id)
+              }}
+              loading={
+                !!isManaging &&
+                isManaging === 'accept' &&
+                managingAppointment === appointment.appointment.id
+              }
+            >
+              Accept
+            </LoadingButton>
+          </footer>
+        )}
     </div>
   )
 }
