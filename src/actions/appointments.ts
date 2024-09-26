@@ -5,6 +5,7 @@ import { currentUser } from '@clerk/nextjs/server'
 import { appointment, AppointmentStatus, Prisma } from '@prisma/client'
 import { isBefore } from 'date-fns'
 import { revalidatePath } from 'next/cache'
+import { subYears, format } from 'date-fns'
 
 interface NewAppointmentData
   extends Omit<appointment, 'status' | 'id' | 'updatedAt' | 'createdAt'> {}
@@ -138,4 +139,40 @@ const manage = async (
   return updatedAppointment
 }
 
-export { create, edit, manage }
+const getAppointmentsPerMonth = async () => {
+  const oneYearAgo = subYears(new Date(), 1)
+
+  const appointments = await prisma.appointment.findMany({
+    where: { start_at: { gte: oneYearAgo } },
+    select: { start_at: true }
+  })
+
+  const monthCounts: { [key: string]: number } = {}
+
+  appointments.forEach(appointment => {
+    const monthYear = format(appointment.start_at, 'MMMM yyyy')
+    monthCounts[monthYear] = (monthCounts[monthYear] || 0) + 1
+  })
+
+  const chartData = Object.entries(monthCounts).map(([month, count]) => ({
+    month,
+    count
+  }))
+
+  return chartData
+}
+
+export const getAppointmentsByStatus = async () => {
+  const statusCounts = await prisma.appointment.groupBy({
+    by: ['status'],
+    _count: { status: true }
+  })
+
+  return statusCounts.map(item => ({
+    status: item.status,
+    count: item._count.status,
+    fill: `var(--color-${item.status})`
+  }))
+}
+
+export { create, edit, manage, getAppointmentsPerMonth }
