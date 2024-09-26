@@ -39,7 +39,7 @@ export const AppointmentTypeSelector = ({
           variant='outline'
           role='combobox'
           aria-expanded={open}
-          className='w-full min-w-[300px] justify-between border-black bg-transparent text-black hover:border-muted-foreground hover:bg-muted hover:text-muted-foreground'
+          className='w-full min-w-[300px] justify-between border-gray-400 bg-transparent text-gray-800 hover:border-muted-foreground hover:bg-white/75 hover:text-muted-foreground'
         >
           {selected?.name}
           <Icons.chevronDown

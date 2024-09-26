@@ -34,9 +34,7 @@ export const get = async () => {
 }
 
 const create = async (data: NewAppointmentData) => {
-  const appointment = prisma.appointment.create({
-    data: { ...data, status: AppointmentStatus.SCHEDULED }
-  })
+  const appointment = prisma.appointment.create({ data })
 
   return appointment
 }
@@ -51,7 +49,7 @@ const edit = async (
   })
 
   if (appointmentData.status !== AppointmentStatus.SCHEDULED) {
-    throw new Error('Appointment is not longer editable')
+    throw new Error('This ppointment is not longer editable')
   }
 
   const user = await currentUser()
@@ -107,8 +105,6 @@ const manage = async (
     where: { id: appointment },
     select: { patient_clerk_id: true, status: true, start_at: true }
   })
-
-  console.log({ std: appointmentData.start_at, tdy: new Date() })
 
   if (appointmentData.status !== AppointmentStatus.PENDING) {
     throw new Error('This appointment is no longer editable !')
