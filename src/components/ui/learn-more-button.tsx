@@ -1,5 +1,5 @@
-import { Button } from './common/button'
-import { Icons } from './common/icons'
+import { Button } from '../common/button'
+import { Icons } from '../common/icons'
 
 export const LearnMoreButton = () => (
   <Button

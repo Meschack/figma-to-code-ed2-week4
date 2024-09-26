@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import { testimonials } from '@/data'
-import { StarRating } from './star-rating'
+import { StarRating } from '../ui/star-rating'
 
 export const TestimonialsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null)

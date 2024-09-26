@@ -1,4 +1,4 @@
-import { Footer } from '@/components/footer'
+import { Footer } from '@/components/layout/client/footer'
 import { Header } from '@/components/layout/client/header'
 import { auth } from '@clerk/nextjs/server'
 import { PropsWithChildren } from 'react'

@@ -1,8 +1,8 @@
 'use client'
 import { useRef } from 'react'
 import SpecialistCard from './specialist-card'
-import { specialists } from '../data'
-import { Icons } from './common/icons'
+import { specialists } from '../../data'
+import { Icons } from '../common/icons'
 
 export const SpecialistsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null)

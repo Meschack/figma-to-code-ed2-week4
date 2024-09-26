@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import Icon from './icon'
+import Icon from '../ui/icon'
 import { servicesData } from '@/data'
-import { Wrapper } from './common/wrapper'
-import { LearnMoreButton } from './learn-more-button'
-import { Button } from './common/button'
+import { Wrapper } from '../common/wrapper'
+import { LearnMoreButton } from '../ui/learn-more-button'
+import { Button } from '../common/button'
 import Link from 'next/link'
-import { Icons } from './common/icons'
+import { Icons } from '../common/icons'
 
 const reasons = [
   'Highly experienced and specialized medical team',
@@ -16,7 +16,7 @@ const reasons = [
 
 export const Services = () => {
   return (
-    <Wrapper className='space-y-10'>
+    <Wrapper className='space-y-10 pb-10'>
       <section className='rounded-lg bg-light-blue p-4'>
         <div className='flex flex-col gap-4 overflow-x-auto lg:flex-row'>
           {servicesData.map((service, index) => (

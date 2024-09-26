@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import { addMinutes } from 'date-fns'
 import { cn } from '@/lib/utils'
-import { GroupedAppointmentsWithUsers } from './pages/appointments'
+import { GroupedAppointmentsWithUsers } from '../pages/appointments'
 import { ComponentProps } from 'react'
-import { LoadingButton } from './common/loading-button'
+import { LoadingButton } from '../common/loading-button'
 import { AppointmentStatus } from '@prisma/client'
 
 interface AppointmentCardProps extends ComponentProps<'div'> {
