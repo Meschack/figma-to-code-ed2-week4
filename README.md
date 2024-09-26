@@ -4,7 +4,7 @@ A modern and responsive platform for booking medical appointments, built with [N
 
 ## Cover Picture
 
-![Doctor Group](./src/app/opengraph-image.jpg)
+![Doctor Group](./public/og.jpg)
 
 ## Features
 
@@ -21,6 +21,11 @@ A modern and responsive platform for booking medical appointments, built with [N
 ## Preview
 
 Check out the live preview of the application by following this link: [https://doctrin.vercel.app](https://doctrin.vercel.app)
+
+To access the doctor dashboard, use the following credentials:
+
+- Email: `meshachgbewezoun@gmail.com`
+- Password: `password-doctrin`
 
 ## Getting Started
 
