@@ -3,7 +3,6 @@ import { getClerkUserInformations } from '@/actions/users'
 import { Wrapper } from '@/components/common/wrapper'
 import { Appointments } from '@/components/pages/appointments'
 import { auth } from '@clerk/nextjs/server'
-import { redirect } from 'next/navigation'
 
 export const metadata = {
   title: 'My appointments',
@@ -11,18 +10,8 @@ export const metadata = {
 }
 
 const Page = async () => {
-  let shouldRedirect = false
-
   try {
     const userId = auth().userId
-
-    const doctorId = process.env.DOCTOR_CLERK_ID
-
-    if (userId === doctorId) {
-      shouldRedirect = true
-
-      return
-    }
 
     if (!userId) return null
 
@@ -53,10 +42,6 @@ const Page = async () => {
     )
   } catch (error) {
     return <p>Une erreur est survenue !</p>
-  } finally {
-    if (shouldRedirect) {
-      redirect('/')
-    }
   }
 }
 

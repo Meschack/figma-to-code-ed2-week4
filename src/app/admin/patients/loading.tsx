@@ -33,9 +33,7 @@ const Loading = () => {
                 <tr key={index}>
                   {Array.from({ length: 3 }).map((_, cellIndex) => (
                     <td className='whitespace-nowrap px-6 py-4' key={cellIndex}>
-                      <Skeleton
-                        className={cn('h-6 w-full', cellIndex === 2 && 'w-6')}
-                      />
+                      <Skeleton className={cn('h-6 w-full')} />
                     </td>
                   ))}
                 </tr>

@@ -1,6 +1,5 @@
 import { get } from '@/actions/users'
 import { Patients } from '@/components/pages/patients'
-import Loading from './loading'
 
 export const metadata = {
   title: 'Patients'
@@ -9,8 +8,6 @@ export const metadata = {
 const Page = async () => {
   try {
     const users = await get()
-
-    return <Loading />
 
     return (
       <>
