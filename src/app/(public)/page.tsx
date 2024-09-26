@@ -1,5 +1,4 @@
 import { CTASection } from '@/components/cta-section'
-import { Footer } from '@/components/footer'
 import { HeroSection } from '@/components/hero-section'
 import { Services } from '@/components/services'
 import { SpecialistsSection } from '@/components/specialists-section'
@@ -13,7 +12,6 @@ const Home = () => {
       <SpecialistsSection />
       <TestimonialsSection />
       <CTASection />
-      <Footer />
     </>
   )
 }
