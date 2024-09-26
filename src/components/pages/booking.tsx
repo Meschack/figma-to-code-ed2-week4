@@ -3,7 +3,6 @@
 import { useRef, useState, useTransition } from 'react'
 import { addDays, formatDate, startOfDay } from 'date-fns'
 import { Calendar } from '../ui/calendar'
-import { fr } from 'date-fns/locale'
 import { useQueryStates, parseAsString } from 'nuqs'
 import { appointment_type } from '@prisma/client'
 import { AppointmentTypeSelector } from '../appointments/appointment-type-selector'
@@ -147,7 +146,6 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
             selected={state.date}
             onSelect={onDayChange}
             fromDate={tomorrow}
-            locale={fr}
           />
         </div>
       </div>
@@ -165,7 +163,7 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
 
         <div className='w-full'>
           <p className='capitalize'>
-            {state.date.toLocaleDateString('fr-FR', options)}
+            {state.date.toLocaleDateString('en-EN', options)}
           </p>
 
           {slotsLoader ? (
@@ -198,7 +196,7 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
                       )}
                       onClick={() => handleSelectSlot(slot)}
                     >
-                      {new Date(slot).toLocaleTimeString('fr-FR', timeOptions)}
+                      {new Date(slot).toLocaleTimeString('en-EN', timeOptions)}
                     </ToggleGroupItem>
                   ))}
               </ToggleGroup>
@@ -214,9 +212,9 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
                     }))
                   }
                 >
-                  Voir
-                  {state.displayAllSessions ? ' moins de ' : ' toutes les '}
-                  séances
+                  View
+                  {state.displayAllSessions ? ' less ' : ' all '}
+                  slots
                 </Button>
               )}
             </div>
