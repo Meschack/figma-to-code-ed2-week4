@@ -1,10 +1,11 @@
-import { clerkMiddleware } from '@clerk/nextjs/server'
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import { NextResponse } from 'next/server'
 
-/* const isPublicRoutes = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)', '/'])
-const isAdminRoutes = createRouteMatcher(['/admin(.*)']) */
+const isPublicRoutes = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)', '/'])
+const isAdminRoutes = createRouteMatcher(['/admin(.*)'])
 
-export default clerkMiddleware((/* auth, request */) => {
-  /* const userId = auth().userId
+export default clerkMiddleware((auth, request) => {
+  const userId = auth().userId
   const doctorId = process.env.DOCTOR_CLERK_ID
 
   if (!isPublicRoutes(request)) {
@@ -19,7 +20,7 @@ export default clerkMiddleware((/* auth, request */) => {
         return NextResponse.redirect(new URL('/', request.url))
       }
     }
-  } */
+  }
 })
 
 export const config = {

@@ -78,7 +78,7 @@ export const Header = ({ isAdmin }: Props) => {
 
           {!isAdmin && pathname !== BOOKING_PAGE_URL && (
             <Button variant='outline' asChild>
-              <Link href='/booking'>Book now</Link>
+              <a href='/booking'>Book now</a>
             </Button>
           )}
         </div>
@@ -112,7 +112,7 @@ export const Header = ({ isAdmin }: Props) => {
 
           {!isAdmin && pathname !== BOOKING_PAGE_URL && (
             <Button variant='outline' asChild>
-              <Link href='/booking'>Book now</Link>
+              <a href='/booking'>Book now</a>
             </Button>
           )}
         </div>

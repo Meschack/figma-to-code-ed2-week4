@@ -27,6 +27,21 @@ model appointment {
   updatedAt           DateTime          @default(now()) @updatedAt
 }
 
+model notifications {
+  id         String             @id @default(cuid())
+  title      String
+  content    String
+  status     NotificationStatus @default(UNREAD)
+  url        String?
+  created_at DateTime           @default(now())
+  updated_at DateTime           @default(now()) @updatedAt
+}
+
+enum NotificationStatus {
+  UNREAD
+  READ
+}
+
 enum AppointmentStatus {
   PENDING
   SCHEDULED

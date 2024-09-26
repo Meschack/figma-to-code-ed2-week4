@@ -36,7 +36,15 @@ export const get = async (userId?: string) => {
 }
 
 const create = async (data: NewAppointmentData) => {
-  const appointment = prisma.appointment.create({ data })
+  const appointment = await prisma.appointment.create({ data })
+
+  await prisma.notifications.create({
+    data: {
+      title: 'New appointment',
+      content: `You have a new appointment on ${format(data.start_at, 'MMMM d, yyyy')} at ${format(data.start_at, 'h:mm a')}`,
+      url: `/admin/appointments?selected=${appointment.id}`
+    }
+  })
 
   return appointment
 }

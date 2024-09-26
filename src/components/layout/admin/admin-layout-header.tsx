@@ -1,6 +1,7 @@
 import { Icons } from '../../common/icons'
 import { UserProfileButton } from '../shared/user-profile-button'
 import { MobileMenu } from './mobile-menu'
+import { NotificationsIndicator } from './notifications-indicator'
 
 export const AdminLayoutHeader = () => {
   return (
@@ -8,7 +9,7 @@ export const AdminLayoutHeader = () => {
       <MobileMenu />
 
       <div className='flex items-center gap-5'>
-        <Icons.bell />
+        <NotificationsIndicator />
 
         <Icons.settings />
 

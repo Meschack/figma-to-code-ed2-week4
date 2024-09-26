@@ -4,7 +4,6 @@ import { servicesData } from '@/data'
 import { Wrapper } from '../common/wrapper'
 import { LearnMoreButton } from '../ui/learn-more-button'
 import { Button } from '../common/button'
-import Link from 'next/link'
 import { Icons } from '../common/icons'
 
 const reasons = [
@@ -56,7 +55,7 @@ export const Services = () => {
             </p>
 
             <Button asChild className='w-fit'>
-              <Link href='/booking'>Book an appointment</Link>
+              <a href='/booking'>Book an appointment</a>
             </Button>
           </div>
 
@@ -95,7 +94,7 @@ export const Services = () => {
 
             <div className='py-4'>
               <Button asChild className='w-fit'>
-                <Link href='/booking'>Book an appointment</Link>
+                <a href='/booking'>Book an appointment</a>
               </Button>
             </div>
           </div>

@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { Wrapper } from '../common/wrapper'
 import { Button } from '../common/button'
-import Link from 'next/link'
 
 export const CTASection = () => {
   return (
@@ -17,7 +16,7 @@ export const CTASection = () => {
           </p>
           <div className='py-4'>
             <Button asChild>
-              <Link href='/booking'>Book an appointment</Link>
+              <a href='/booking'>Book an appointment</a>
             </Button>
           </div>
         </div>

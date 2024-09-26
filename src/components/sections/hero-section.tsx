@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { Wrapper } from '../common/wrapper'
 import { Icons } from '../common/icons'
 import { Button } from '../common/button'
-import Link from 'next/link'
 import heroImage from '@@/images/hero_img.png'
 
 export const HeroSection = () => {
@@ -21,9 +20,9 @@ export const HeroSection = () => {
 
         <div className='flex w-full flex-col items-center gap-4 sm:flex-row'>
           <Button asChild>
-            <Link href='/booking' className='!h-full w-full sm:w-auto'>
+            <a href='/booking' className='!h-full w-full sm:w-auto'>
               Book an appointment
-            </Link>
+            </a>
           </Button>
 
           <div className='hidden w-full items-center gap-4 sm:mx-0 sm:w-fit lg:flex'>
