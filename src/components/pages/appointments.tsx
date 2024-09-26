@@ -4,9 +4,6 @@ import { GroupedAppointments, manage } from '@/actions/appointments'
 import { parseAsString, useQueryStates } from 'nuqs'
 import { ClerkUserImportantElements } from '@/types/user'
 import { AppointmentCard } from '../appointment-card'
-import { DateFilter } from '../date-filter'
-import { DateRange } from 'react-day-picker'
-import { formatDate } from 'date-fns'
 import { AppointmentDetailsSheet } from '../appointment-details-sheet'
 import { toast } from 'sonner'
 import { useState } from 'react'
@@ -40,14 +37,6 @@ export const Appointments = ({ appointments }: Props) => {
     appointment: GroupedAppointmentsWithUsers['appointments'][number]
   ) => {
     setSearchParams({ selected: appointment.appointment.id })
-  }
-
-  const onDateRangeChange = (value: DateRange | undefined) => {
-    setSearchParams(prev => ({
-      ...prev,
-      from: value && value.from ? formatDate(value.from, 'yyyy-MM-dd') : null,
-      to: value && value.to ? formatDate(value.to, 'yyyy-MM-dd') : null
-    }))
   }
 
   const onAppointmentManage = async (
@@ -95,8 +84,6 @@ export const Appointments = ({ appointments }: Props) => {
         <div className='space-y-10'>
           <div className='flex items-center justify-between'>
             <h1>Appointments</h1>
-
-            <DateFilter onDateRangeChange={onDateRangeChange} />
           </div>
 
           <div className='space-y-10'>
@@ -107,7 +94,7 @@ export const Appointments = ({ appointments }: Props) => {
                     {date}
                   </h3>
 
-                  <div className='grid grid-cols-2 gap-8'>
+                  <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
                     {appointments.map(appointment => (
                       <AppointmentCard
                         appointment={appointment}

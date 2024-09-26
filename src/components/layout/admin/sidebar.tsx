@@ -1,10 +1,6 @@
-'use client'
-
-import { usePathname } from 'next/navigation'
 import { Icons } from '../../common/icons'
-import { SidebarLink } from './sidebar-link'
-
-interface Props {}
+import Link from 'next/link'
+import { SidebarLinksList } from './sidebar-links-list'
 
 export interface SidebarElement {
   label: string
@@ -12,25 +8,14 @@ export interface SidebarElement {
   icon: keyof typeof Icons
 }
 
-const sidebarElements: SidebarElement[] = [
-  { label: 'Dashboard', path: '/admin', icon: 'dashboard' },
-  { label: 'Patient List', path: '/admin/patients', icon: 'patients' },
-  { label: 'Appointment', path: '/admin/appointments', icon: 'calendar' },
-  { label: 'Profile', path: '/admin/profile', icon: 'patients' }
-]
-
-export const Sidebar = ({}: Props) => {
-  const pathname = usePathname()
-
+export const Sidebar = () => {
   return (
-    <aside className='sticky top-28 flex h-full w-60 flex-col gap-1 p-4'>
-      {sidebarElements.map(element => (
-        <SidebarLink
-          element={element}
-          isActive={pathname === element.path}
-          key={element.path}
-        />
-      ))}
+    <aside className='sticky hidden h-full w-60 shrink-0 flex-col gap-8 border-r-2 px-4 py-8 xl:flex'>
+      <Link href='/'>
+        <Icons.logo className='h-10' />
+      </Link>
+
+      <SidebarLinksList />
     </aside>
   )
 }

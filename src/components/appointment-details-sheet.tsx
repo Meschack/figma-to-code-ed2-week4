@@ -95,7 +95,7 @@ export const AppointmentDetailsSheet = ({
 
         {appointment.appointment.status === AppointmentStatus.PENDING && (
           <SheetFooter className='mt-auto h-fit items-center border-t-2 pt-5 sm:justify-center'>
-            <div className='grid grid-cols-2 gap-2'>
+            <div className='grid w-full grid-cols-2 gap-2 px-4'>
               <LoadingButton
                 onClick={event => {
                   event.stopPropagation()
@@ -109,7 +109,7 @@ export const AppointmentDetailsSheet = ({
                   managingAppointment === appointment.appointment.id
                 }
               >
-                Decline Appointment
+                Decline
               </LoadingButton>
 
               <LoadingButton
@@ -124,7 +124,7 @@ export const AppointmentDetailsSheet = ({
                   managingAppointment === appointment.appointment.id
                 }
               >
-                Accept Appointment
+                Accept
               </LoadingButton>
             </div>
           </SheetFooter>

@@ -5,6 +5,7 @@ import { currentUser } from '@clerk/nextjs/server'
 import { appointment, AppointmentStatus, Prisma } from '@prisma/client'
 import { isBefore } from 'date-fns'
 import { revalidatePath } from 'next/cache'
+import { subYears, format } from 'date-fns'
 
 interface NewAppointmentData
   extends Omit<appointment, 'status' | 'id' | 'updatedAt' | 'createdAt'> {}
@@ -34,9 +35,7 @@ export const get = async () => {
 }
 
 const create = async (data: NewAppointmentData) => {
-  const appointment = prisma.appointment.create({
-    data: { ...data, status: AppointmentStatus.SCHEDULED }
-  })
+  const appointment = prisma.appointment.create({ data })
 
   return appointment
 }
@@ -51,7 +50,7 @@ const edit = async (
   })
 
   if (appointmentData.status !== AppointmentStatus.SCHEDULED) {
-    throw new Error('Appointment is not longer editable')
+    throw new Error('This ppointment is not longer editable')
   }
 
   const user = await currentUser()
@@ -108,8 +107,6 @@ const manage = async (
     select: { patient_clerk_id: true, status: true, start_at: true }
   })
 
-  console.log({ std: appointmentData.start_at, tdy: new Date() })
-
   if (appointmentData.status !== AppointmentStatus.PENDING) {
     throw new Error('This appointment is no longer editable !')
   }
@@ -142,4 +139,40 @@ const manage = async (
   return updatedAppointment
 }
 
-export { create, edit, manage }
+const getAppointmentsPerMonth = async () => {
+  const oneYearAgo = subYears(new Date(), 1)
+
+  const appointments = await prisma.appointment.findMany({
+    where: { start_at: { gte: oneYearAgo } },
+    select: { start_at: true }
+  })
+
+  const monthCounts: { [key: string]: number } = {}
+
+  appointments.forEach(appointment => {
+    const monthYear = format(appointment.start_at, 'MMMM yyyy')
+    monthCounts[monthYear] = (monthCounts[monthYear] || 0) + 1
+  })
+
+  const chartData = Object.entries(monthCounts).map(([month, count]) => ({
+    month,
+    count
+  }))
+
+  return chartData
+}
+
+export const getAppointmentsByStatus = async () => {
+  const statusCounts = await prisma.appointment.groupBy({
+    by: ['status'],
+    _count: { status: true }
+  })
+
+  return statusCounts.map(item => ({
+    status: item.status,
+    count: item._count.status,
+    fill: `var(--color-${item.status})`
+  }))
+}
+
+export { create, edit, manage, getAppointmentsPerMonth }

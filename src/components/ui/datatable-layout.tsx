@@ -153,15 +153,7 @@ export const DataTableLayout = <T extends WithId>({
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map(header => {
                   return (
-                    <TableHead
-                      key={header.id}
-                      /* className={cn(
-                        header.column.columnDef.meta?.className,
-                        header.column.columnDef.meta?.breakpoint
-                          ? `hidden ${header.column.columnDef.meta.breakpoint}:table-cell`
-                          : ''
-                      )} */
-                    >
+                    <TableHead key={header.id}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(

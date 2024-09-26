@@ -5,13 +5,14 @@ import { SignedIn, UserButton } from '@clerk/nextjs'
 
 interface Props {
   isAdmin: boolean
+  withMenu?: boolean
 }
 
-export const UserProfileButton = ({ isAdmin }: Props) => {
+export const UserProfileButton = ({ isAdmin, withMenu = true }: Props) => {
   return (
     <SignedIn>
       <UserButton appearance={{ elements: { userButtonAvatarBox: 'size-10' } }}>
-        {isAdmin && (
+        {isAdmin && withMenu && (
           <UserButton.MenuItems>
             <UserButton.Link
               label='Dashboard'
