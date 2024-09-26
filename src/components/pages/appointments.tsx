@@ -96,6 +96,7 @@ export const Appointments = ({ appointments, canManage }: Props) => {
                     onManage={onAppointmentManage}
                     isManaging={state.isManaging}
                     managingAppointment={state.managingAppointment}
+                    canManage={canManage}
                   />
                 ))}
               </div>
