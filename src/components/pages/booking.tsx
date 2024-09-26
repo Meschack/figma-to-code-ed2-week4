@@ -21,6 +21,7 @@ import {
 } from '../ui/dialog'
 import { LoadingButton } from '../common/loading-button'
 import { create } from '@/actions/appointments'
+import { toast } from 'sonner'
 
 interface Props {
   date?: Date
@@ -125,7 +126,11 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
   }
 
   const initAppointmentCreation = () => {
-    if (!state.chosenSlot) return
+    if (!state.chosenSlot) {
+      toast.warning('Please select a slot', { id: 'should-select-slot' })
+
+      return
+    }
 
     setState(prev => ({ ...prev, open: true }))
   }
@@ -187,7 +192,7 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
                       key={index}
                       className={cn(
                         buttonVariants({ variant: 'outline' }),
-                        'whitespace-nowrap rounded-none border-black disabled:!bg-gray-100 aria-checked:!bg-doctrin-blue aria-checked:!text-white'
+                        'whitespace-nowrap rounded-none border-gray-200 shadow-none disabled:!bg-gray-100 aria-checked:!bg-doctrin-blue aria-checked:!text-white'
                       )}
                       onClick={() => handleSelectSlot(slot)}
                     >
@@ -234,7 +239,7 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
 }
 
 const SlotsLoader = () => (
-  <div className='grid grid-cols-2 gap-3 py-3'>
+  <div className='grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] gap-3 py-3'>
     {Array.from({ length: 6 }).map((_, index) => (
       <Skeleton className='h-8 rounded-none' key={index} />
     ))}

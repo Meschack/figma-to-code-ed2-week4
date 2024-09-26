@@ -43,7 +43,7 @@ const config: Config = {
         sans: ['var(--font-urbanist)']
       },
       width: { xl: '1028px' },
-      maxWidth: { desktop: '1200px', tablet: '676px' },
+      maxWidth: { desktop: '986px', tablet: '676px', large: '1200px' },
       keyframes: {
         shimmer: { '100%': { transform: 'translateX(100%)' } }
       },
