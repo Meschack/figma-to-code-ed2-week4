@@ -8,7 +8,6 @@ import { AppointmentDetailsSheet } from '../appointments/appointment-details-she
 import { toast } from 'sonner'
 import { useState } from 'react'
 import { Button } from '../common/button'
-import Link from 'next/link'
 
 export interface GroupedAppointmentsWithUsers {
   appointments: Array<{
@@ -86,7 +85,7 @@ export const Appointments = ({ appointments, canManage }: Props) => {
       <p>You don't have any appointment yet.</p>
 
       <Button variant='outline' asChild>
-        <Link href='/booking'>Book an appointment</Link>
+        <a href='/booking'>Book an appointment</a>
       </Button>
     </div>
   ) : (
