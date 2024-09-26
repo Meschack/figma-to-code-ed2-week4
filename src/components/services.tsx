@@ -8,10 +8,10 @@ import Link from 'next/link'
 import { Icons } from './common/icons'
 
 const reasons = [
-  'Top quality dental team',
-  'State of the art dental services',
-  'Discount on all dental treatment',
-  'Enrollment is quick and easy'
+  'Highly experienced and specialized medical team',
+  'Advanced technology and state-of-the-art facilities',
+  'Exclusive discounts on select treatments and services',
+  'Simple and quick enrollment process for new patients'
 ]
 
 export const Services = () => {
@@ -46,14 +46,13 @@ export const Services = () => {
         <div className='flex flex-col-reverse items-center justify-between gap-8 lg:flex-row'>
           <div className='flex flex-col space-y-7'>
             <h2 className='text-left text-4xl font-semibold leading-tight'>
-              Leave Your Worries At The Door And Enjoy A Healthier, More Precise
-              Smile
+              Experience Exceptional Care and Personalized Solutions
             </h2>
 
             <p className='max-w-lg text-body-text'>
-              We use only the best quality materials on the market in order to
-              provide the best products to our patients, So don’t worry about
-              anything and book yourself.
+              We take pride in using top-quality materials and advanced
+              techniques to deliver outstanding results. Let us handle the
+              details while you enjoy a smooth and stress-free experience.
             </p>
 
             <Button asChild className='w-fit'>
@@ -61,7 +60,7 @@ export const Services = () => {
             </Button>
           </div>
 
-          <Image src='/images/section-3.svg' alt='' width={450} height={450} />
+          <Image src='/images/pro-help.png' alt='' width={450} height={450} />
         </div>
       </section>
 
@@ -77,7 +76,7 @@ export const Services = () => {
 
           <div className='mx-auto max-w-lg space-y-4'>
             <h2 className='text-3xl font-semibold'>
-              Why choose Smile for all your dental treatments?
+              Why choose us for your medical treatments?
             </h2>
             <p className='max-w-lg text-body-text'>
               We use only the best quality materials on the market in order to

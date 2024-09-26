@@ -45,9 +45,9 @@ export const TestimonialsSection = () => {
         <h2 className='text-4xl font-semibold'>
           Our <span className='text-primary-blue'>Happy Clients</span>
         </h2>
-        <p className='mt-2 text-body-text'>
-          We use only the best quality materials on the market in <br /> order
-          to provide the best products to our patients.
+        <p className='mt-2 px-4 text-body-text'>
+          We use only the best quality materials on the market in order to
+          provide the best products to our patients.
         </p>
       </div>
 
