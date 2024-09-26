@@ -24,20 +24,14 @@ export const NotificationCard = ({
   onRemove
 }: NotificationCardProps) => {
   const handleClose = async () => {
-    const removedNotif = notification
-
     onRemove(notification.id)
 
     try {
       await update(notification.id)
     } catch (error) {
-      toast.error("La notification n'a pas pu être supprimée")
+      toast.error('The notification could not be deleted')
 
       onRemove(notification.id)
-
-      /* setTimeout(() => {
-        onRemove(removedNotif.id)
-      }, 0) */
     }
   }
 

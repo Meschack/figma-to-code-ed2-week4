@@ -2,10 +2,10 @@
 
 import prisma from '@/lib/prisma'
 import { auth } from '@clerk/nextjs/server'
-import { notifications, NotificationStatus, Prisma } from '@prisma/client'
+import { notifications, NotificationStatus } from '@prisma/client'
 
 export interface GroupedNotifications {
-  [date: string]: Prisma.notificationsGetPayload<{}>[]
+  [date: string]: notifications[]
 }
 
 export const update = async (id: string): Promise<notifications> => {
