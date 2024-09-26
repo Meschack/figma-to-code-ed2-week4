@@ -10,12 +10,17 @@ import {
   SheetTrigger
 } from '@/components/ui/sheet'
 import { SidebarLinksList } from './sidebar-links-list'
+import { useState } from 'react'
 
 interface Props {}
 
 export const MobileMenu = ({}: Props) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggle = (value: boolean) => setIsOpen(value)
+
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={toggle}>
       <SheetTrigger asChild>
         <Button
           variant='outline'
@@ -32,7 +37,7 @@ export const MobileMenu = ({}: Props) => {
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
 
-        <SidebarLinksList className='px-4' />
+        <SidebarLinksList onLinkClick={() => toggle(false)} className='px-4' />
       </SheetContent>
     </Sheet>
   )

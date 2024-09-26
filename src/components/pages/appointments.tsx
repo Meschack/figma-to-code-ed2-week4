@@ -7,6 +7,8 @@ import { AppointmentCard } from '../appointment-card'
 import { AppointmentDetailsSheet } from '../appointment-details-sheet'
 import { toast } from 'sonner'
 import { useState } from 'react'
+import { Button } from '../common/button'
+import Link from 'next/link'
 
 export interface GroupedAppointmentsWithUsers {
   appointments: Array<{
@@ -79,7 +81,15 @@ export const Appointments = ({ appointments, canManage }: Props) => {
         )
     : undefined
 
-  return (
+  return appointments.length === 0 ? (
+    <div className='grid place-content-center gap-5'>
+      <p>You don't have any appointment yet.</p>
+
+      <Button variant='outline' asChild>
+        <Link href='/booking'>Book an appointment</Link>
+      </Button>
+    </div>
+  ) : (
     <>
       <div className='space-y-10'>
         {appointments.map(({ appointments, date }) => {

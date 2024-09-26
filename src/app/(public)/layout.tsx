@@ -8,9 +8,9 @@ const Layout = async ({ children }: PropsWithChildren) => {
   const doctorId = process.env.DOCTOR_CLERK_ID
 
   return (
-    <div className='space-y-10 pt-10'>
+    <div className='flex min-h-screen w-screen flex-col gap-10 pt-10'>
       <Header isAdmin={userId === doctorId} />
-      {children}
+      <main className='grow'>{children}</main>
       <Footer />
     </div>
   )

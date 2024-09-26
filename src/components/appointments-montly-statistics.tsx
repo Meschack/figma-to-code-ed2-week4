@@ -31,7 +31,7 @@ export const AppointmentsMontlyStatistics = ({
 }: Props) => {
   return (
     <div
-      className={cn('col-span-3 rounded-lg border p-4', className)}
+      className={cn('col-span-3 space-y-5 rounded-lg border p-4', className)}
       {...rest}
     >
       <header className='space-y-2'>
@@ -46,7 +46,11 @@ export const AppointmentsMontlyStatistics = ({
 
       <main>
         <ChartContainer config={chartConfig}>
-          <BarChart accessibilityLayer data={chartData} margin={{ top: 20 }}>
+          <BarChart
+            accessibilityLayer
+            data={chartData}
+            margin={{ top: 20, left: 0 }}
+          >
             <CartesianGrid vertical={false} />
 
             <XAxis
@@ -64,7 +68,7 @@ export const AppointmentsMontlyStatistics = ({
                 strokeWidth: 1.5
               }}
               tick
-              tickMargin={10}
+              tickMargin={0}
             />
 
             <ChartTooltip
@@ -72,7 +76,12 @@ export const AppointmentsMontlyStatistics = ({
               content={<ChartTooltipContent hideLabel />}
             />
 
-            <Bar dataKey='count' fill='var(--doctrin-blue)' radius={8}>
+            <Bar
+              dataKey='count'
+              fill='var(--doctrin-blue)'
+              barSize={40}
+              radius={8}
+            >
               <LabelList
                 position='top'
                 offset={12}
