@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { Button } from '@/components/common/button'
 import { Icons } from '@/components/common/icons'
 import { Wrapper } from '@/components/common/wrapper'
-import { SignInButton, UserButton } from '@clerk/clerk-react'
-import { SignedIn, SignedOut } from '@clerk/nextjs'
+import { SignInButton } from '@clerk/clerk-react'
+import { SignedOut } from '@clerk/nextjs'
 import Link from 'next/link'
+import { UserProfileButton } from '../shared/user-profile-button'
+import { cn } from '@/lib/utils'
+import { usePathname } from 'next/navigation'
 
 const menuItems = [
   { label: 'Home', href: '/' },
@@ -16,8 +19,16 @@ const menuItems = [
   { label: 'Blog', href: '/blog' }
 ]
 
-export const Header = () => {
+const BOOKING_PAGE_URL = '/booking'
+
+interface Props {
+  isAdmin: boolean
+}
+
+export const Header = ({ isAdmin }: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const pathname = usePathname()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -43,7 +54,9 @@ export const Header = () => {
           ))}
         </ul>
 
-        <div className='md:hidden'>
+        <div className='flex items-center gap-2 md:hidden'>
+          <UserProfileButton isAdmin={isAdmin} />
+
           <button onClick={toggleMenu}>
             <Image
               alt='Menu Icon'
@@ -61,22 +74,21 @@ export const Header = () => {
             </SignInButton>
           </SignedOut>
 
-          <SignedIn>
-            <UserButton
-              appearance={{ elements: { userButtonAvatarBox: 'size-10' } }}
-            />
-          </SignedIn>
+          <UserProfileButton isAdmin={isAdmin} />
 
-          <Button variant='outline' asChild>
-            <Link href='booking'>Book now</Link>
-          </Button>
+          {!isAdmin && pathname !== BOOKING_PAGE_URL && (
+            <Button variant='outline' asChild>
+              <Link href='/booking'>Book now</Link>
+            </Button>
+          )}
         </div>
       </div>
 
       <div
-        className={`${
+        className={cn(
+          'overflow-hidden bg-doctrin-light-blue transition-all duration-300 ease-in-out md:hidden',
           isMenuOpen ? 'max-h-screen' : 'max-h-0'
-        } overflow-hidden transition-all duration-300 ease-in-out md:hidden bg-doctrin-light-blue`}
+        )}
       >
         <ul className='flex flex-col items-center gap-3 py-3'>
           {menuItems.map(item => (
@@ -98,15 +110,11 @@ export const Header = () => {
             </SignInButton>
           </SignedOut>
 
-          <SignedIn>
-            <UserButton
-              appearance={{ elements: { userButtonAvatarBox: 'size-10' } }}
-            />
-          </SignedIn>
-
-          <Button variant='outline' asChild>
-            <Link href='booking'>Book now</Link>
-          </Button>
+          {!isAdmin && pathname !== BOOKING_PAGE_URL && (
+            <Button variant='outline' asChild>
+              <Link href='/booking'>Book now</Link>
+            </Button>
+          )}
         </div>
       </div>
     </Wrapper>

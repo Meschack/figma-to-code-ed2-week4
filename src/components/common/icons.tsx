@@ -41,14 +41,14 @@ export const Icons = {
     >
       <path
         d='M4.25 12.2743L19.25 12.2743'
-        stroke='#130F26'
+        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
       />
       <path
         d='M10.2998 18.2987L4.2498 12.2747L10.2998 6.24969'
-        stroke='#130F26'
+        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
@@ -66,14 +66,14 @@ export const Icons = {
     >
       <path
         d='M19.75 11.7257L4.75 11.7257'
-        stroke='#130F26'
+        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
       />
       <path
         d='M13.7002 5.70131L19.7502 11.7253L13.7002 17.7503'
-        stroke='#130F26'
+        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
@@ -96,7 +96,7 @@ export const Icons = {
             fillRule='evenodd'
             clipRule='evenodd'
             d='M11.9961 2.51416C7.56185 2.51416 5.63519 6.5294 5.63519 9.18368C5.63519 11.1675 5.92281 10.5837 4.82471 13.0037C3.48376 16.4523 8.87614 17.8618 11.9961 17.8618C15.1152 17.8618 20.5076 16.4523 19.1676 13.0037C18.0695 10.5837 18.3571 11.1675 18.3571 9.18368C18.3571 6.5294 16.4295 2.51416 11.9961 2.51416Z'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -104,7 +104,7 @@ export const Icons = {
           <path
             id='Stroke 3'
             d='M14.3059 20.5122C13.0116 21.9579 10.9926 21.9751 9.68591 20.5122'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -127,7 +127,7 @@ export const Icons = {
           <path
             id='Line_200'
             d='M3.09265 9.40427H20.9166'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -135,7 +135,7 @@ export const Icons = {
           <path
             id='Line_201'
             d='M16.4421 13.3097H16.4514'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -143,7 +143,7 @@ export const Icons = {
           <path
             id='Line_202'
             d='M12.0046 13.3097H12.0139'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -151,7 +151,7 @@ export const Icons = {
           <path
             id='Line_203'
             d='M7.55793 13.3097H7.5672'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -159,7 +159,7 @@ export const Icons = {
           <path
             id='Line_204'
             d='M16.4421 17.1962H16.4514'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -167,7 +167,7 @@ export const Icons = {
           <path
             id='Line_205'
             d='M12.0046 17.1962H12.0139'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -175,7 +175,7 @@ export const Icons = {
           <path
             id='Line_206'
             d='M7.55793 17.1962H7.5672'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -183,7 +183,7 @@ export const Icons = {
           <path
             id='Line_207'
             d='M16.0438 2V5.29078'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -191,7 +191,7 @@ export const Icons = {
           <path
             id='Line_208'
             d='M7.96552 2V5.29078'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -201,7 +201,7 @@ export const Icons = {
             fillRule='evenodd'
             clipRule='evenodd'
             d='M16.2383 3.57922H7.77096C4.83427 3.57922 3 5.21516 3 8.22225V17.2719C3 20.3263 4.83427 22 7.77096 22H16.229C19.175 22 21 20.3546 21 17.3475V8.22225C21.0092 5.21516 19.1842 3.57922 16.2383 3.57922Z'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -254,7 +254,7 @@ export const Icons = {
     >
       <path
         d='M19 8.5L12 15.5L5 8.5'
-        stroke='#130F26'
+        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
@@ -272,7 +272,7 @@ export const Icons = {
     >
       <path
         d='M5 15.5L12 8.5L19 15.5'
-        stroke='#130F26'
+        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
@@ -290,7 +290,7 @@ export const Icons = {
     >
       <path
         d='M15.5 19L8.5 12L15.5 5'
-        stroke='#130F26'
+        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
@@ -309,11 +309,62 @@ export const Icons = {
     >
       <path
         d='M8.5 5L15.5 12L8.5 19'
-        stroke='#130F26'
+        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
       />
+    </svg>
+  ),
+  doubleChevronLeft: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='m17 17-5-5 5-5' />
+      <path d='m10 17-5-5 5-5' />
+    </svg>
+  ),
+  doubleChevronRight: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='m6 17 5-5-5-5' />
+      <path d='m13 17 5-5-5-5' />
+    </svg>
+  ),
+  chevronUpDown: (props: IconProps) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='m7 15 5 5 5-5' />
+      <path d='m7 9 5-5 5 5' />
     </svg>
   ),
   dashboard: (props: IconProps) => (
@@ -330,7 +381,7 @@ export const Icons = {
           <path
             id='Line_182'
             d='M7.37145 10.2017V17.0619'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -338,7 +389,7 @@ export const Icons = {
           <path
             id='Line_183'
             d='M12.0381 6.91913V17.0618'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -346,7 +397,7 @@ export const Icons = {
           <path
             id='Line_184'
             d='M16.6285 13.8268V17.0619'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -356,7 +407,7 @@ export const Icons = {
             fillRule='evenodd'
             clipRule='evenodd'
             d='M16.6857 2H7.31429C4.04762 2 2 4.31208 2 7.58516V16.4148C2 19.6879 4.0381 22 7.31429 22H16.6857C19.9619 22 22 19.6879 22 16.4148V7.58516C22 4.31208 19.9619 2 16.6857 2Z'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -417,7 +468,7 @@ export const Icons = {
           <path
             id='Stroke 11'
             d='M15.9393 12.413H15.9483'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='2'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -425,7 +476,7 @@ export const Icons = {
           <path
             id='Stroke 13'
             d='M11.9304 12.413H11.9394'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='2'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -433,7 +484,7 @@ export const Icons = {
           <path
             id='Stroke 15'
             d='M7.9214 12.413H7.9304'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='2'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -443,7 +494,7 @@ export const Icons = {
             fillRule='evenodd'
             clipRule='evenodd'
             d='M19.071 19.0698C16.0159 22.1264 11.4896 22.7867 7.78631 21.074C7.23961 20.8539 3.70113 21.8339 2.93334 21.067C2.16555 20.2991 3.14639 16.7601 2.92631 16.2134C1.21285 12.5106 1.87411 7.9826 4.9302 4.9271C8.83147 1.0243 15.1698 1.0243 19.071 4.9271C22.9803 8.83593 22.9723 15.1681 19.071 19.0698Z'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -466,7 +517,7 @@ export const Icons = {
           <path
             id='Stroke 1'
             d='M17.8877 10.8967C19.2827 10.7007 20.3567 9.50467 20.3597 8.05567C20.3597 6.62767 19.3187 5.44367 17.9537 5.21967'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -474,7 +525,7 @@ export const Icons = {
           <path
             id='Stroke 3'
             d='M19.7285 14.2503C21.0795 14.4523 22.0225 14.9253 22.0225 15.9003C22.0225 16.5713 21.5785 17.0073 20.8605 17.2813'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -484,7 +535,7 @@ export const Icons = {
             fillRule='evenodd'
             clipRule='evenodd'
             d='M11.8867 14.6638C8.67273 14.6638 5.92773 15.1508 5.92773 17.0958C5.92773 19.0398 8.65573 19.5408 11.8867 19.5408C15.1007 19.5408 17.8447 19.0588 17.8447 17.1128C17.8447 15.1668 15.1177 14.6638 11.8867 14.6638Z'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -494,7 +545,7 @@ export const Icons = {
             fillRule='evenodd'
             clipRule='evenodd'
             d='M11.8869 11.8879C13.9959 11.8879 15.7059 10.1789 15.7059 8.06888C15.7059 5.95988 13.9959 4.24988 11.8869 4.24988C9.7779 4.24988 8.0679 5.95988 8.0679 8.06888C8.0599 10.1709 9.7569 11.8809 11.8589 11.8879H11.8869Z'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -502,7 +553,7 @@ export const Icons = {
           <path
             id='Stroke 9'
             d='M5.88484 10.8967C4.48884 10.7007 3.41584 9.50467 3.41284 8.05567C3.41284 6.62767 4.45384 5.44367 5.81884 5.21967'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -510,7 +561,7 @@ export const Icons = {
           <path
             id='Stroke 11'
             d='M4.044 14.2503C2.693 14.4523 1.75 14.9253 1.75 15.9003C1.75 16.5713 2.194 17.0073 2.912 17.2813'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -552,7 +603,7 @@ export const Icons = {
             fillRule='evenodd'
             clipRule='evenodd'
             d='M20.8067 7.62355L20.1842 6.54346C19.6577 5.62954 18.4907 5.31426 17.5755 5.83866V5.83866C17.1399 6.09528 16.6201 6.16809 16.1307 6.04103C15.6413 5.91396 15.2226 5.59746 14.9668 5.16131C14.8023 4.88409 14.7139 4.56833 14.7105 4.24598V4.24598C14.7254 3.72916 14.5304 3.22834 14.17 2.85761C13.8096 2.48688 13.3145 2.2778 12.7975 2.27802H11.5435C11.037 2.27801 10.5513 2.47985 10.194 2.83888C9.83669 3.19791 9.63717 3.68453 9.63961 4.19106V4.19106C9.6246 5.23686 8.77248 6.07675 7.72657 6.07664C7.40421 6.07329 7.08846 5.98488 6.81123 5.82035V5.82035C5.89606 5.29595 4.72911 5.61123 4.20254 6.52516L3.53435 7.62355C3.00841 8.53633 3.3194 9.70255 4.23 10.2322V10.2322C4.8219 10.574 5.18653 11.2055 5.18653 11.889C5.18653 12.5725 4.8219 13.204 4.23 13.5457V13.5457C3.32056 14.0719 3.00923 15.2353 3.53435 16.1453V16.1453L4.16593 17.2345C4.41265 17.6797 4.8266 18.0082 5.31619 18.1474C5.80578 18.2865 6.33064 18.2248 6.77462 17.976V17.976C7.21108 17.7213 7.73119 17.6515 8.21934 17.7821C8.70749 17.9128 9.12324 18.233 9.37416 18.6716C9.5387 18.9488 9.62711 19.2646 9.63046 19.5869V19.5869C9.63046 20.6435 10.487 21.5 11.5435 21.5H12.7975C13.8505 21.5 14.7055 20.6491 14.7105 19.5961V19.5961C14.7081 19.088 14.9089 18.6 15.2682 18.2407C15.6275 17.8814 16.1155 17.6806 16.6236 17.6831C16.9452 17.6917 17.2596 17.7797 17.5389 17.9393V17.9393C18.4517 18.4653 19.6179 18.1543 20.1476 17.2437V17.2437L20.8067 16.1453C21.0618 15.7074 21.1318 15.1859 21.0012 14.6963C20.8706 14.2067 20.5502 13.7893 20.111 13.5366V13.5366C19.6718 13.2839 19.3514 12.8665 19.2208 12.3769C19.0902 11.8872 19.1603 11.3658 19.4154 10.9279C19.5812 10.6383 19.8214 10.3981 20.111 10.2322V10.2322C21.0161 9.70283 21.3264 8.54343 20.8067 7.63271V7.63271V7.62355Z'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -562,7 +613,7 @@ export const Icons = {
             cx='12.1751'
             cy='11.889'
             r='2.63616'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -587,7 +638,7 @@ export const Icons = {
             cx='11.7666'
             cy='11.7666'
             r='8.98856'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -595,7 +646,7 @@ export const Icons = {
           <path
             id='Line_181'
             d='M18.0183 18.4851L21.5423 22'
-            stroke='#130F26'
+            stroke='currentColor'
             strokeWidth='1.5'
             strokeLinecap='round'
             strokeLinejoin='round'

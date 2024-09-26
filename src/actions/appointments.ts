@@ -2,10 +2,36 @@
 
 import prisma from '@/lib/prisma'
 import { currentUser } from '@clerk/nextjs/server'
-import { appointment, AppointmentStatus } from '@prisma/client'
+import { appointment, AppointmentStatus, Prisma } from '@prisma/client'
+import { isBefore } from 'date-fns'
+import { revalidatePath } from 'next/cache'
 
 interface NewAppointmentData
   extends Omit<appointment, 'status' | 'id' | 'updatedAt' | 'createdAt'> {}
+
+export interface GroupedAppointments {
+  [date: string]: Prisma.appointmentGetPayload<{
+    include: { appointment_type: { select: { name: true; duration: true } } }
+  }>[]
+}
+
+export const get = async () => {
+  const appointments = await prisma.appointment.findMany({
+    orderBy: { start_at: 'desc' },
+    include: { appointment_type: { select: { name: true, duration: true } } }
+  })
+
+  const groupedAppointments = appointments.reduce((acc, appointment) => {
+    const date = appointment.start_at.toISOString().split('T')[0]
+    if (!acc[date]) acc[date] = []
+
+    acc[date].push(appointment)
+
+    return acc
+  }, {} as GroupedAppointments)
+
+  return groupedAppointments
+}
 
 const create = async (data: NewAppointmentData) => {
   const appointment = prisma.appointment.create({
@@ -54,7 +80,7 @@ const edit = async (
   const now = Date.now()
 
   if (appointmentEndDate < now) {
-    throw new Error('Appointment already ended')
+    throw new Error('This appointment is already ended')
   }
 
   const updatedAppointment = prisma.appointment.update({
@@ -65,4 +91,55 @@ const edit = async (
   return updatedAppointment
 }
 
-export { create, edit }
+const manage = async (
+  action: 'accept' | 'cancel' | 'finish',
+  appointment: string
+) => {
+  const user = await currentUser()
+
+  const doctorClerkId = process.env.DOCTOR_CLERK_ID
+
+  if (user?.id !== doctorClerkId) {
+    throw new Error("You're not authorized to manage this appointment")
+  }
+
+  const appointmentData = await prisma.appointment.findUniqueOrThrow({
+    where: { id: appointment },
+    select: { patient_clerk_id: true, status: true, start_at: true }
+  })
+
+  console.log({ std: appointmentData.start_at, tdy: new Date() })
+
+  if (appointmentData.status !== AppointmentStatus.PENDING) {
+    throw new Error('This appointment is no longer editable !')
+  }
+
+  if (isBefore(appointmentData.start_at, new Date())) {
+    await prisma.appointment.update({
+      where: { id: appointment },
+      data: { status: AppointmentStatus.CANCELLED }
+    })
+
+    revalidatePath('/admin/appointments')
+
+    throw new Error('This appointment is no longer editable !')
+  }
+
+  const updatedAppointment = prisma.appointment.update({
+    where: { id: appointment },
+    data: {
+      status:
+        action === 'accept'
+          ? AppointmentStatus.SCHEDULED
+          : action === 'cancel'
+            ? AppointmentStatus.CANCELLED
+            : AppointmentStatus.COMPLETED
+    }
+  })
+
+  revalidatePath('/admin/appointments')
+
+  return updatedAppointment
+}
+
+export { create, edit, manage }
