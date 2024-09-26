@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/popover'
 import { appointment_type } from '@prisma/client'
 import { useState } from 'react'
-import { Icons } from './common/icons'
+import { Icons } from '../common/icons'
 
 interface Props {
   appointmentTypes: appointment_type[]

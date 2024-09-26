@@ -24,7 +24,10 @@ const config: Config = {
             100: 'var(--doctrin-neutral-100)'
           },
           light: { blue: 'var(--doctrin-light-blue)' },
-          dark: { blue: 'var(--doctrin-dark-blue)' },
+          dark: {
+            blue: 'var(--doctrin-dark-blue)',
+            'cta-section': 'var(--doctrin-dark-cta-section)'
+          },
           blue: 'var(--doctrin-blue)'
         },
         muted: {

@@ -2,8 +2,8 @@ import {
   getAppointmentsByStatus,
   getAppointmentsPerMonth
 } from '@/actions/appointments'
-import { AppointmentsMontlyStatistics } from '@/components/appointments-montly-statistics'
-import { AppointmentsStatistics } from '@/components/appointments-statistics'
+import { AppointmentsMontlyStatistics } from '@/components/appointments/appointments-montly-statistics'
+import { AppointmentsStatistics } from '@/components/appointments/appointments-statistics'
 import { currentUser } from '@clerk/nextjs/server'
 
 const Page = async () => {

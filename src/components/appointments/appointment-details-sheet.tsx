@@ -1,15 +1,15 @@
 import { DialogProps } from '@radix-ui/react-dialog'
-import { GroupedAppointmentsWithUsers } from './pages/appointments'
+import { GroupedAppointmentsWithUsers } from '../pages/appointments'
 import {
   Sheet,
   SheetContent,
   SheetFooter,
   SheetHeader,
   SheetTitle
-} from './ui/sheet'
+} from '../ui/sheet'
 import { formatDate } from 'date-fns'
 import Image from 'next/image'
-import { LoadingButton } from './common/loading-button'
+import { LoadingButton } from '../common/loading-button'
 import { AppointmentStatus } from '@prisma/client'
 
 interface Props {

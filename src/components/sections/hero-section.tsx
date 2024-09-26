@@ -1,8 +1,9 @@
 import Image from 'next/image'
-import { Wrapper } from './common/wrapper'
-import { Icons } from './common/icons'
-import { Button } from './common/button'
+import { Wrapper } from '../common/wrapper'
+import { Icons } from '../common/icons'
+import { Button } from '../common/button'
 import Link from 'next/link'
+import heroImage from '@@/images/hero_img.png'
 
 export const HeroSection = () => {
   return (
@@ -25,7 +26,7 @@ export const HeroSection = () => {
             </Link>
           </Button>
 
-          <div className='lg:flex w-full items-center gap-4 sm:mx-0 sm:w-fit hidden'>
+          <div className='hidden w-full items-center gap-4 sm:mx-0 sm:w-fit lg:flex'>
             <div className='grid place-content-center rounded-lg border-2 border-doctrin-blue p-3'>
               <Icons.phone className='text-doctrin-blue' />
             </div>
@@ -41,12 +42,9 @@ export const HeroSection = () => {
       </div>
 
       <Image
-        src='/images/hero_img.png'
+        src={heroImage}
         alt='Hero Section Image'
         className='max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg'
-        layout='intrinsic'
-        width={600}
-        height={600}
       />
     </Wrapper>
   )
