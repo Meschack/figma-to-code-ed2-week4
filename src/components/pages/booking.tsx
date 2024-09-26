@@ -140,14 +140,16 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
       <div className='col-span-full space-y-5 lg:col-span-2'>
         <p>Check our avalibility and book the date and time that suits you.</p>
 
-        <Calendar
-          mode='single'
-          defaultMonth={state.date}
-          selected={state.date}
-          onSelect={onDayChange}
-          fromDate={tomorrow}
-          locale={fr}
-        />
+        <div className='scrollbar-hide w-full overflow-auto py-4'>
+          <Calendar
+            mode='single'
+            defaultMonth={state.date}
+            selected={state.date}
+            onSelect={onDayChange}
+            fromDate={tomorrow}
+            locale={fr}
+          />
+        </div>
       </div>
 
       <div className='col-span-full space-y-5 lg:col-span-1'>

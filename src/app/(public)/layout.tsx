@@ -1,3 +1,4 @@
+import { Footer } from '@/components/footer'
 import { Header } from '@/components/layout/client/header'
 import { auth } from '@clerk/nextjs/server'
 import { PropsWithChildren } from 'react'
@@ -9,8 +10,8 @@ const Layout = async ({ children }: PropsWithChildren) => {
   return (
     <div className='space-y-10 pt-10'>
       <Header isAdmin={userId === doctorId} />
-
       {children}
+      <Footer />
     </div>
   )
 }
