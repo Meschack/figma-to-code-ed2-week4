@@ -55,10 +55,17 @@ To access the doctor dashboard, use the following credentials:
    Create a `.env.local` file in the root of the project and add your configuration. For example:
 
    ```bash
-   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="YOUR CLERK PUBLISHABLE KEY"
-   CLERK_SECRET_KEY="YOUR CLERK SECRET KEY"
-   DATABASE_URL="YOUR DATABASE URL"
-   DOCTOR_CLERK_ID="YOUR DOCTOR CLERK USER ID"
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="YOUR_CLERK_PUBLISHABLE_KEY"
+   CLERK_SECRET_KEY="YOUR_CLERK_SECRET_KEY"
+   DATABASE_URL="YOUR_DATABASE_URL"
+   DOCTOR_CLERK_ID="YOUR_DOCTOR_CLERK_USER_ID"
+   MAIL_FROM_ADDRESS=your-email@example.com
+   MAIL_FROM_NAME="Doctrin"
+   MAIL_HOST=smtp.example.com
+   MAIL_MAILER=smtp
+   MAIL_PASSWORD="YOUR_MAIL_PASSWORD"
+   MAIL_PORT=587
+   MAIL_FROM_USERNAME=your-username
    ```
 
 4. Start the development server:

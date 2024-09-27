@@ -100,7 +100,13 @@ export const AppointmentFeedback = ({
 
                     <Text style={{ ...paragraph, marginTop: -5 }}>
                       <b>Ending hour: </b>
-                      {format(appointment.start_at, 'HH:mm a')}
+                      {format(
+                        addMinutes(
+                          appointment.start_at,
+                          appointment.appointment_type.duration
+                        ),
+                        'HH:mm a'
+                      )}
                     </Text>
 
                     <Text style={paragraph}>
