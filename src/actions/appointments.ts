@@ -6,6 +6,10 @@ import { appointment, AppointmentStatus, Prisma } from '@prisma/client'
 import { isBefore } from 'date-fns'
 import { revalidatePath } from 'next/cache'
 import { subYears, format } from 'date-fns'
+import { clerkClient } from '@/lib/clerk-client'
+import { sendMail } from './email'
+import { render } from '@react-email/render'
+import { AppointmentFeedback } from '@/components/emails/appointment-feedback'
 
 interface NewAppointmentData
   extends Omit<appointment, 'status' | 'id' | 'updatedAt' | 'createdAt'> {}
@@ -131,7 +135,7 @@ const manage = async (
     throw new Error('This appointment is no longer editable !')
   }
 
-  const updatedAppointment = prisma.appointment.update({
+  const updatedAppointment = await prisma.appointment.update({
     where: { id: appointment },
     data: {
       status:
@@ -140,8 +144,25 @@ const manage = async (
           : action === 'cancel'
             ? AppointmentStatus.CANCELLED
             : AppointmentStatus.COMPLETED
-    }
+    },
+    include: { appointment_type: { select: { name: true, duration: true } } }
   })
+
+  if (action !== 'finish') {
+    const { emailAddresses, fullName } = await clerkClient.users.getUser(
+      appointmentData.patient_clerk_id
+    )
+
+    const html = await render(
+      AppointmentFeedback({ fullName, appointment: updatedAppointment, action })
+    )
+
+    sendMail({
+      to: emailAddresses[0].emailAddress,
+      subject: `Doctrin appointment`,
+      html
+    })
+  }
 
   revalidatePath('/admin/appointments')
 

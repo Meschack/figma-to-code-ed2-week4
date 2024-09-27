@@ -272,28 +272,30 @@ const AppointmentReasonDialog = ({
           </DialogDescription>
         </DialogHeader>
 
-        <div className='grid gap-4 py-4'>
-          <div className='grid gap-4'>
+        <div className='grid gap-4'>
+          <form className='grid gap-2'>
             <label htmlFor='reason'>Reason</label>
             <input
               id='reason'
               className='flex h-10 w-full rounded-none border border-muted-foreground bg-transparent px-3 py-1 text-sm transition-colors file:border-0 placeholder:text-muted-foreground focus-visible:outline-none'
               ref={inputRef}
             />
-          </div>
-        </div>
 
-        <DialogFooter>
-          <LoadingButton
-            onClick={() =>
-              onSubmit(inputRef.current !== null ? inputRef.current.value : '')
-            }
-            loading={loading}
-            type='submit'
-          >
-            Continue
-          </LoadingButton>
-        </DialogFooter>
+            <DialogFooter>
+              <LoadingButton
+                onClick={() =>
+                  onSubmit(
+                    inputRef.current !== null ? inputRef.current.value : ''
+                  )
+                }
+                loading={loading}
+                type='submit'
+              >
+                Continue
+              </LoadingButton>
+            </DialogFooter>
+          </form>
+        </div>
       </DialogContent>
     </Dialog>
   )

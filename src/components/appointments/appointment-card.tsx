@@ -87,19 +87,17 @@ export const AppointmentCard = ({
           <p>{appointment.appointment.reason || 'No reason provided !'}</p>
         </section>
 
-        {!canManage && (
-          <p>
-            Status :{' '}
-            <span
-              className='font-medium'
-              style={{
-                color: `hsl(var(--appointment-${appointment.appointment.status.toLowerCase()}))`
-              }}
-            >
-              {appointment.appointment.status}
-            </span>
-          </p>
-        )}
+        <p>
+          Status :{' '}
+          <span
+            className='font-medium'
+            style={{
+              color: `hsl(var(--appointment-${appointment.appointment.status.toLowerCase()}))`
+            }}
+          >
+            {appointment.appointment.status}
+          </span>
+        </p>
 
         {appointment.appointment.status === AppointmentStatus.PENDING &&
           canManage && (
