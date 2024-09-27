@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { Button } from '@/components/common/button'
 import { Icons } from '@/components/common/icons'
 import { Wrapper } from '@/components/common/wrapper'
@@ -57,14 +56,14 @@ export const Header = ({ isAdmin }: Props) => {
         <div className='flex items-center gap-2 md:hidden'>
           <UserProfileButton isAdmin={isAdmin} />
 
-          <button onClick={toggleMenu}>
-            <Image
-              alt='Menu Icon'
-              src='/icons/menu.svg'
-              width={40}
-              height={40}
-            />
-          </button>
+          <Button
+            className='[&_path]:fill-white'
+            size='icon'
+            onClick={toggleMenu}
+          >
+            <Icons.menu />
+            <span className='sr-only'>Toggle menu</span>
+          </Button>
         </div>
 
         <div className='hidden items-center gap-2 md:flex'>

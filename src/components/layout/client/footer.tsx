@@ -2,6 +2,34 @@ import Link from 'next/link'
 import { Wrapper } from '../../common/wrapper'
 import { Icons } from '@/components/common/icons'
 
+const socialLinks = [
+  {
+    href: 'https://facebook.com/doctrin',
+    icon: Icons.facebook,
+    label: 'Facebook'
+  },
+  {
+    href: 'https://instagram.com/doctrin',
+    icon: Icons.instagram,
+    label: 'Instagram'
+  },
+  {
+    href: 'https://youtube.com/doctrin',
+    icon: Icons.youtube,
+    label: 'Youtube'
+  },
+  {
+    href: 'https://linkedin.com/in/doctrin',
+    icon: Icons.linkedin,
+    label: 'LinkedIn'
+  },
+  {
+    href: 'https://twitter.com/doctrin',
+    icon: Icons.twitter,
+    label: 'Twitter'
+  }
+]
+
 export const Footer = () => {
   return (
     <footer className='bg-white py-6'>
@@ -50,37 +78,17 @@ export const Footer = () => {
             </a>
           </p>
 
-          <div className='flex space-x-4'>
-            <img
-              src='/icons/facebook.svg'
-              alt='Facebook'
-              width={30}
-              height={30}
-            />
-            <img
-              src='/icons/instagram.svg'
-              alt='Instagram'
-              width={30}
-              height={30}
-            />
-            <img
-              src='/icons/youtube.svg'
-              alt='Youtube'
-              width={30}
-              height={30}
-            />
-            <img
-              src='/icons/linkedin-footer.svg'
-              alt='Linkedin'
-              width={30}
-              height={30}
-            />
-            <img
-              src='/icons/twitter.svg'
-              alt='Twitter'
-              width={30}
-              height={30}
-            />
+          <div className='flex items-center gap-4'>
+            {socialLinks.map(link => (
+              <Link
+                href={link.href}
+                className='grid place-content-center rounded-full bg-doctrin-dark-blue p-2'
+                key={link.label}
+                title={link.label}
+              >
+                <link.icon className='size-4' />
+              </Link>
+            ))}
           </div>
         </div>
       </Wrapper>

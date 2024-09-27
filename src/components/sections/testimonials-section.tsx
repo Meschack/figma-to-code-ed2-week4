@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react'
 import { testimonials } from '@/data'
 import { StarRating } from '../ui/star-rating'
+import Image from 'next/image'
 
 export const TestimonialsSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -62,11 +63,12 @@ export const TestimonialsSection = () => {
               className='min-w-[300px] max-w-sm flex-shrink-0 rounded-lg bg-white p-6 shadow-md'
             >
               <div className='flex items-center gap-3'>
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className='h-14 w-14 rounded-full'
+                  className='h-14 w-14 rounded-full object-cover'
                 />
+
                 <div className='flex flex-col justify-center gap-1'>
                   <h3 className='text-lg font-medium text-body-text'>
                     {testimonial.name}

@@ -1,20 +1,25 @@
+import { Icons } from '@/components/common/icons'
 import { addDays } from 'date-fns'
+import thomasDaniel from '@@/images/testimonial/thomas-daniel.jpg'
+import alena from '@@/images/testimonial/alena.jpg'
+import alineParker from '@@/images/testimonial/aline-parker.jpg'
+import janeDoe from '@@/images/testimonial/jane-doe.jpg'
 
 export const servicesData = [
   {
-    icon: '/icons/teeth-icon.svg',
+    icon: Icons.teeth,
     title: 'Root Canal Treatment',
     description:
       'Root canal treatment (endodontics) is a dental procedure used to treat infection at the centre of a tooth.'
   },
   {
-    icon: '/icons/dental-cleaning.svg',
+    icon: Icons.dentalCleaning,
     title: 'Dental Cleaning',
     description:
       'Regular dental cleaning is essential for maintaining healthy gums and teeth.'
   },
   {
-    icon: '/icons/implant.svg',
+    icon: Icons.implant,
     title: 'Orthodontics',
     description:
       'Orthodontics is a specialty that deals with the diagnosis, prevention, and correction of teeth alignment.'
@@ -25,7 +30,7 @@ export const testimonials = [
   {
     name: 'Thomas Daniel',
     role: 'Orthodontist',
-    image: '/images/thomas-daniel.svg',
+    image: thomasDaniel,
     message:
       'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
     rating: 5
@@ -33,15 +38,15 @@ export const testimonials = [
   {
     name: 'Alena Alex',
     role: 'Endodontist',
-    image: '/images/alena.svg',
+    image: alena,
     message:
       'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
     rating: 5
   },
   {
-    name: 'Thomas Edison',
+    name: 'Aline Parker',
     role: 'Pediatric Dentist',
-    image: '/images/thomas-edison.svg',
+    image: alineParker,
     message:
       'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
     rating: 5
@@ -49,10 +54,10 @@ export const testimonials = [
   {
     name: 'Jane Doe',
     role: 'Oral Surgeon',
-    image: '/images/thomas-edison.svg',
+    image: janeDoe,
     message:
       'Phosfluorescently synergize covalent outsourcing through functional strategic theme areas. Assertively scale strategic portals without distinctive relationships. Holisticly cultivate tactical e-services before fully researched sources.',
-    rating: 5
+    rating: 4
   }
 ]
 
