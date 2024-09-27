@@ -1,10 +1,11 @@
 import Image from 'next/image'
-import Icon from '../ui/icon'
 import { servicesData } from '@/data'
 import { Wrapper } from '../common/wrapper'
 import { LearnMoreButton } from '../ui/learn-more-button'
 import { Button } from '../common/button'
 import { Icons } from '../common/icons'
+import reasonSection from '@@/images/reasons-section.png'
+import proHelp from '@@/images/pro-help.png'
 
 const reasons = [
   'Highly experienced and specialized medical team',
@@ -21,9 +22,11 @@ export const Services = () => {
           {servicesData.map((service, index) => (
             <div
               key={index}
-              className='flex flex-col justify-center rounded-md bg-white p-4'
+              className='flex flex-col items-center justify-center rounded-md bg-white p-4'
             >
-              <Icon src={service.icon} alt={`${service.title} icon`} />
+              <div className='mx-auto max-w-max rounded-full border bg-sky-blue p-3'>
+                <service.icon />
+              </div>
 
               <div className='space-y-2 text-center'>
                 <h3 className='mt-2 whitespace-nowrap text-xl font-medium'>
@@ -59,15 +62,15 @@ export const Services = () => {
             </Button>
           </div>
 
-          <Image src='/images/pro-help.png' alt='' width={450} height={450} />
+          <Image src={proHelp} alt='Find help' width={450} height={450} />
         </div>
       </section>
 
       <section className='rounded-lg bg-light-blue px-3 py-6 pt-4'>
         <div className='mx-auto flex max-w-full flex-col justify-around gap-8 px-2 py-8 lg:flex-row'>
           <Image
-            src='/images/reasons-section.svg'
-            alt=''
+            src={reasonSection}
+            alt='Reason section'
             width={400}
             height={400}
             className='mx-auto'
@@ -77,6 +80,7 @@ export const Services = () => {
             <h2 className='text-3xl font-semibold'>
               Why choose us for your medical treatments?
             </h2>
+
             <p className='max-w-lg text-body-text'>
               We use only the best quality materials on the market in order to
               provide the best products to our patients, So don’t worry about

@@ -1,7 +1,8 @@
 'use client'
 
 import { Icons } from '@/components/common/icons'
-import { SignedIn, UserButton } from '@clerk/nextjs'
+import { SignedIn, UserButton, useUser } from '@clerk/nextjs'
+import { Skeleton } from '@/components/ui/skeleton'
 
 interface Props {
   isAdmin: boolean
@@ -9,6 +10,12 @@ interface Props {
 }
 
 export const UserProfileButton = ({ isAdmin, withMenu = true }: Props) => {
+  const { isLoaded } = useUser()
+
+  if (!isLoaded) {
+    return <Skeleton className='size-10 rounded-full' />
+  }
+
   return (
     <SignedIn>
       <UserButton appearance={{ elements: { userButtonAvatarBox: 'size-10' } }}>

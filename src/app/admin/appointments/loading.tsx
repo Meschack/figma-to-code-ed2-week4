@@ -5,7 +5,7 @@ const Loading = ({ canManage = true }: { canManage?: boolean }) => {
     <div>
       <h1>My appointments</h1>
 
-      <div className='space-y-10'>
+      <div className='mt-10 space-y-10'>
         {Array.from({ length: 3 }).map((_, i) => (
           <div
             key={i}
@@ -44,9 +44,10 @@ const Loading = ({ canManage = true }: { canManage?: boolean }) => {
                     </div>
 
                     {!canManage && (
-                      <p>
-                        Status : <Skeleton className='h-5 w-40' />
-                      </p>
+                      <div className='flex items-center gap-2'>
+                        <Skeleton className='h-5 w-20' />
+                        <Skeleton className='h-5 w-40' />
+                      </div>
                     )}
 
                     {canManage && (
