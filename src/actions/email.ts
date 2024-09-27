@@ -40,7 +40,7 @@ export const sendMail = async (options: Omit<Mail.Options, 'from'>) => {
     return { success: true, message: 'Mail sent' }
   } catch (error) {
     if (error instanceof Error) {
-      console.log('Error while send the mail : ' + error.message)
+      console.log('Error while sending the mail : ' + error.message)
     }
 
     throw error

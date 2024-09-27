@@ -1,5 +1,6 @@
 import { get } from '@/actions/appointments'
 import { getClerkUserInformations } from '@/actions/users'
+import { ErrorComponent } from '@/components/common/error'
 import { Wrapper } from '@/components/common/wrapper'
 import { Appointments } from '@/components/pages/appointments'
 import { auth } from '@clerk/nextjs/server'
@@ -41,7 +42,14 @@ const Page = async () => {
       </Wrapper>
     )
   } catch (error) {
-    return <p>Une erreur est survenue !</p>
+    return (
+      <ErrorComponent
+        title='An error occurred'
+        description='An error occurred while fetching the data.'
+        label='Retry'
+        to=''
+      />
+    )
   }
 }
 

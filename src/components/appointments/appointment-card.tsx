@@ -1,10 +1,10 @@
-import Image from 'next/image'
 import { addMinutes } from 'date-fns'
 import { cn } from '@/lib/utils'
 import { GroupedAppointmentsWithUsers } from '../pages/appointments'
 import { ComponentProps } from 'react'
 import { LoadingButton } from '../common/loading-button'
 import { AppointmentStatus } from '@prisma/client'
+import { CustomImage } from '../common/custom-image'
 
 interface AppointmentCardProps extends ComponentProps<'div'> {
   appointment: GroupedAppointmentsWithUsers['appointments'][number]
@@ -50,7 +50,7 @@ export const AppointmentCard = ({
       <header className='flex items-center gap-5'>
         <div>
           {appointment.user.hasImage ? (
-            <Image
+            <CustomImage
               src={appointment.user.imageUrl}
               alt='User image'
               width={50}
@@ -58,7 +58,7 @@ export const AppointmentCard = ({
               className='rounded-full object-cover'
             />
           ) : (
-            <div className='h-12 w-12 rounded-full bg-doctrin-neutral-secondary'></div>
+            <div className='h-12 w-12 rounded-full bg-doctrin-neutral-secondary' />
           )}
         </div>
 

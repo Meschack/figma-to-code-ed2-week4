@@ -85,6 +85,7 @@ export const Footer = () => {
                 className='grid place-content-center rounded-full bg-doctrin-dark-blue p-2'
                 key={link.label}
                 title={link.label}
+                target='_blank'
               >
                 <link.icon className='size-4' />
               </Link>

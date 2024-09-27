@@ -43,7 +43,7 @@ export const ErrorComponent = ({
 
       <Button variant='outline' asChild>
         <a
-          className='!border-black !text-black hover:bg-black hover:!text-white'
+          className='!border-black !text-black hover:!bg-black hover:!text-white'
           href={to ?? '/'}
         >
           {label ?? 'Come back'}

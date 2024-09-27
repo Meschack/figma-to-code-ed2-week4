@@ -56,7 +56,6 @@ export const Appointments = ({ appointments, canManage }: Props) => {
 
       toast.success(`The appointment has been marked as ${action}ed !`)
     } catch (error) {
-      console.log(error)
       if (error instanceof Error) {
         toast.error(error.message)
       }

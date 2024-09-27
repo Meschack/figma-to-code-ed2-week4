@@ -1,5 +1,6 @@
 import { get } from '@/actions/appointments'
 import { getClerkUserInformations } from '@/actions/users'
+import { ErrorComponent } from '@/components/common/error'
 import { Appointments } from '@/components/pages/appointments'
 
 export const metadata = {
@@ -35,7 +36,16 @@ const Page = async () => {
         <Appointments canManage appointments={appointmentsWithUsers} />
       </div>
     )
-  } catch (error) {}
+  } catch (error) {
+    return (
+      <ErrorComponent
+        title='An error occurred'
+        description='An error occurred while fetching the data.'
+        label='Retry'
+        to=''
+      />
+    )
+  }
 }
 
 export default Page

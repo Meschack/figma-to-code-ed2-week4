@@ -4,6 +4,7 @@ import {
 } from '@/actions/appointments'
 import { AppointmentsMontlyStatistics } from '@/components/appointments/appointments-montly-statistics'
 import { AppointmentsStatistics } from '@/components/appointments/appointments-statistics'
+import { ErrorComponent } from '@/components/common/error'
 import { currentUser } from '@clerk/nextjs/server'
 
 const Page = async () => {
@@ -30,7 +31,16 @@ const Page = async () => {
         </div>
       </div>
     )
-  } catch (error) {}
+  } catch (error) {
+    return (
+      <ErrorComponent
+        title='An error occurred'
+        description='An error occurred while fetching the data.'
+        label='Retry'
+        to=''
+      />
+    )
+  }
 }
 
 export default Page

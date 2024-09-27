@@ -1,4 +1,5 @@
 import { getAvailableSlots } from '@/actions/slots'
+import { ErrorComponent } from '@/components/common/error'
 import { Wrapper } from '@/components/common/wrapper'
 import { Booking } from '@/components/pages/booking'
 import { tommorow } from '@/data'
@@ -50,7 +51,14 @@ const Page = async ({ searchParams }: PageProps) => {
       )
     }
   } catch (error) {
-    return <p>Une erreur est survenue</p>
+    return (
+      <ErrorComponent
+        title='An error occurred'
+        description='An error occurred while fetching the data.'
+        label='Retry'
+        to=''
+      />
+    )
   }
 }
 
