@@ -116,13 +116,13 @@ export const NotificationsIndicator = ({}: Props) => {
         </Button>
       </SheetTrigger>
 
-      <SheetContent>
-        <SheetHeader className='justify-center'>
+      <SheetContent className='flex flex-col p-0'>
+        <SheetHeader>
           <SheetTitle>Notifications</SheetTitle>
         </SheetHeader>
 
-        <div className='flex h-full flex-col'>
-          <div className='no-scrollbar flex-grow overflow-y-auto'>
+        <div className='flex h-full flex-col px-4'>
+          <div className='scrollbar-hide flex-grow overflow-y-auto'>
             {totalNotifications > 0 ? (
               <div className='grid'>
                 <AnimatePresence>
@@ -136,6 +136,7 @@ export const NotificationsIndicator = ({}: Props) => {
                             </span>
                           </div>
                         </div>
+
                         <AnimatePresence>
                           <div className='space-y-2'>
                             {notificationsForDate.map(notification => (
@@ -166,6 +167,7 @@ export const NotificationsIndicator = ({}: Props) => {
               </div>
             )}
           </div>
+
           <SheetFooter className='mt-auto py-4'>
             <SheetClose asChild>
               <Button

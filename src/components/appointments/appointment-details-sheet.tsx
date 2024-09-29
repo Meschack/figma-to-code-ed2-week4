@@ -8,9 +8,9 @@ import {
   SheetTitle
 } from '../ui/sheet'
 import { formatDate } from 'date-fns'
-import Image from 'next/image'
 import { LoadingButton } from '../common/loading-button'
 import { AppointmentStatus } from '@prisma/client'
+import { CustomImage } from '../common/custom-image'
 
 interface Props {
   appointment: GroupedAppointmentsWithUsers['appointments'][number]
@@ -34,8 +34,8 @@ export const AppointmentDetailsSheet = ({
 }: Props) => {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent className='flex flex-col gap-5 px-0'>
-        <SheetHeader className='px-4'>
+      <SheetContent className='flex flex-col gap-5 p-0'>
+        <SheetHeader>
           <SheetTitle>Appointment details</SheetTitle>
         </SheetHeader>
 
@@ -44,7 +44,7 @@ export const AppointmentDetailsSheet = ({
             <h2 className='text-sm uppercase'>Patient information</h2>
             <div className='flex items-center gap-4'>
               <div className='relative size-20 shrink-0 overflow-hidden rounded-full'>
-                <Image
+                <CustomImage
                   src={appointment.user.imageUrl}
                   alt='User profile image'
                   fill

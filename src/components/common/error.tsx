@@ -33,9 +33,10 @@ export const ErrorComponent = ({
     />
 
     <div className='flex flex-col items-center gap-5 text-center'>
-      <h2 className='text-2xl font-bold text-black'>
+      <h2 className='text-xl font-medium text-black'>
         {title ?? 'Page not found'}
       </h2>
+
       <p className='font-medium'>
         {description ??
           "The page you're looking for have been moved, deleted or don't exist."}
@@ -43,7 +44,7 @@ export const ErrorComponent = ({
 
       <Button variant='outline' asChild>
         <a
-          className='!border-black !text-black hover:bg-black hover:!text-white'
+          className='!border-black !text-black hover:!bg-black hover:!text-white'
           href={to ?? '/'}
         >
           {label ?? 'Come back'}
