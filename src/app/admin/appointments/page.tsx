@@ -2,14 +2,25 @@ import { get } from '@/actions/appointments'
 import { getClerkUserInformations } from '@/actions/users'
 import { ErrorComponent } from '@/components/common/error'
 import { Appointments } from '@/components/pages/appointments'
+import { searchParamsCache } from '@/config/appointments'
+import { AppointmentStatus } from '@prisma/client'
 
-export const metadata = {
-  title: 'Appointments'
+export const metadata = { title: 'Appointments' }
+
+interface Props {
+  searchParams: { status: string | undefined }
 }
 
-const Page = async () => {
+const Page = async ({ searchParams }: Props) => {
   try {
-    const appointments = await get()
+    const { status } = searchParamsCache.parse(searchParams)
+
+    const appointments = await get({
+      status:
+        status !== 'all'
+          ? (status.toUpperCase() as AppointmentStatus)
+          : undefined
+    })
 
     const appointmentsWithUsers = await Promise.all(
       Object.keys(appointments).map(async date => {
@@ -31,8 +42,6 @@ const Page = async () => {
 
     return (
       <div className='space-y-10'>
-        <h1>Appointments</h1>
-
         <Appointments canManage appointments={appointmentsWithUsers} />
       </div>
     )
@@ -47,5 +56,4 @@ const Page = async () => {
     )
   }
 }
-
 export default Page

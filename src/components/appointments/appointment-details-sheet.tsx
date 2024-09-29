@@ -34,8 +34,8 @@ export const AppointmentDetailsSheet = ({
 }: Props) => {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent className='flex flex-col gap-5 px-0'>
-        <SheetHeader className='px-4'>
+      <SheetContent className='flex flex-col gap-5 p-0'>
+        <SheetHeader>
           <SheetTitle>Appointment details</SheetTitle>
         </SheetHeader>
 

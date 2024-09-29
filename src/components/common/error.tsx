@@ -33,9 +33,10 @@ export const ErrorComponent = ({
     />
 
     <div className='flex flex-col items-center gap-5 text-center'>
-      <h2 className='text-2xl font-bold text-black'>
+      <h2 className='text-xl font-medium text-black'>
         {title ?? 'Page not found'}
       </h2>
+
       <p className='font-medium'>
         {description ??
           "The page you're looking for have been moved, deleted or don't exist."}
