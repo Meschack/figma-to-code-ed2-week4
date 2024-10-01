@@ -22,6 +22,7 @@ interface Props {
   ) => void
   isManaging?: 'accept' | 'cancel' | 'finish'
   managingAppointment?: string
+  canManage: boolean
 }
 
 export const AppointmentDetailsSheet = ({
@@ -30,7 +31,8 @@ export const AppointmentDetailsSheet = ({
   appointment,
   onManage,
   isManaging,
-  managingAppointment
+  managingAppointment,
+  canManage
 }: Props) => {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -39,11 +41,11 @@ export const AppointmentDetailsSheet = ({
           <SheetTitle>Appointment details</SheetTitle>
         </SheetHeader>
 
-        <div className='grid gap-4 px-4'>
+        <div className='scrollbar-hide grid gap-4 overflow-x-auto px-4'>
           <div className='space-y-4'>
             <h2 className='text-sm uppercase'>Patient information</h2>
             <div className='flex items-center gap-4'>
-              <div className='relative size-20 shrink-0 overflow-hidden rounded-full'>
+              <div className='relative size-14 shrink-0 overflow-hidden rounded-full md:size-20'>
                 <CustomImage
                   src={appointment.user.imageUrl}
                   alt='User profile image'
@@ -85,50 +87,49 @@ export const AppointmentDetailsSheet = ({
             {appointment.appointment.reason && (
               <div className='flex flex-col gap-3'>
                 <h3 className='text-gray-500'>Problem</h3>
-                <p className='text-justify font-medium'>
-                  {appointment.appointment.reason}
-                </p>
+                <p className='font-medium'>{appointment.appointment.reason}</p>
               </div>
             )}
           </div>
         </div>
 
-        {appointment.appointment.status === AppointmentStatus.PENDING && (
-          <SheetFooter className='mt-auto h-fit items-center border-t-2 pt-5 sm:justify-center'>
-            <div className='grid w-full grid-cols-2 gap-2 px-4'>
-              <LoadingButton
-                onClick={event => {
-                  event.stopPropagation()
+        {appointment.appointment.status === AppointmentStatus.PENDING &&
+          canManage && (
+            <SheetFooter className='mt-auto h-fit items-center border-t-2 py-5 sm:justify-center'>
+              <div className='grid w-full grid-cols-2 gap-2 px-4'>
+                <LoadingButton
+                  onClick={event => {
+                    event.stopPropagation()
 
-                  onManage('cancel', appointment.appointment.id)
-                }}
-                variant='outline'
-                loading={
-                  !!isManaging &&
-                  isManaging === 'cancel' &&
-                  managingAppointment === appointment.appointment.id
-                }
-              >
-                Decline
-              </LoadingButton>
+                    onManage('cancel', appointment.appointment.id)
+                  }}
+                  variant='outline'
+                  loading={
+                    !!isManaging &&
+                    isManaging === 'cancel' &&
+                    managingAppointment === appointment.appointment.id
+                  }
+                >
+                  Decline
+                </LoadingButton>
 
-              <LoadingButton
-                onClick={event => {
-                  event.stopPropagation()
+                <LoadingButton
+                  onClick={event => {
+                    event.stopPropagation()
 
-                  onManage('accept', appointment.appointment.id)
-                }}
-                loading={
-                  !!isManaging &&
-                  isManaging === 'accept' &&
-                  managingAppointment === appointment.appointment.id
-                }
-              >
-                Accept
-              </LoadingButton>
-            </div>
-          </SheetFooter>
-        )}
+                    onManage('accept', appointment.appointment.id)
+                  }}
+                  loading={
+                    !!isManaging &&
+                    isManaging === 'accept' &&
+                    managingAppointment === appointment.appointment.id
+                  }
+                >
+                  Accept
+                </LoadingButton>
+              </div>
+            </SheetFooter>
+          )}
       </SheetContent>
     </Sheet>
   )

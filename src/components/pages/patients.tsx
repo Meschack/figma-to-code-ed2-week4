@@ -3,9 +3,9 @@
 import { ClerkUserImportantElements } from '@/types/user'
 import { DataTableLayout, DataTableLayoutProps } from '../ui/datatable-layout'
 import { ColumnDef } from '@tanstack/react-table'
-import Image from 'next/image'
 import { Button } from '../common/button'
 import { Icons } from '../common/icons'
+import { CustomImage } from '../common/custom-image'
 
 interface Props {
   users: Array<
@@ -39,7 +39,7 @@ const columns: ColumnDef<Props['users'][number]>[] = [
     cell: ({ row }) => (
       <div className='flex items-center gap-2'>
         <div className='relative size-10'>
-          <Image
+          <CustomImage
             src={row.original.imageUrl}
             alt={`${row.original.fullName} profile picture`}
             className='rounded-full object-cover'

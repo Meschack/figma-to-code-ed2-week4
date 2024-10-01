@@ -134,6 +134,17 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
     setState(prev => ({ ...prev, open: true }))
   }
 
+  const onMonthChange = (value: Date) => {
+    setState(prev => ({ ...prev, date: value, chosenSlot: null }))
+
+    setSearchParams(prev => ({
+      ...prev,
+      date: formatDate(value, 'yyyy-MM-dd')
+    }))
+  }
+
+  console.log({ slot: state.chosenSlot })
+
   return (
     <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
       <div className='col-span-full space-y-5 lg:col-span-2'>
@@ -146,6 +157,7 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
             selected={state.date}
             onSelect={onDayChange}
             fromDate={tomorrow}
+            onMonthChange={onMonthChange}
           />
         </div>
       </div>
@@ -196,7 +208,7 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
                       )}
                       onClick={() => handleSelectSlot(slot)}
                     >
-                      {new Date(slot).toLocaleTimeString('en-EN', timeOptions)}
+                      {slot.toLocaleTimeString('en-EN', timeOptions)}
                     </ToggleGroupItem>
                   ))}
               </ToggleGroup>

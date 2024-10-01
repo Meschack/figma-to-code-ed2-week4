@@ -26,7 +26,7 @@ const Page = async () => {
 
           <AppointmentsMontlyStatistics
             className='lg:col-span-3'
-            chartData={monthlyStatistics.reverse()}
+            chartData={monthlyStatistics}
           />
         </div>
       </div>
