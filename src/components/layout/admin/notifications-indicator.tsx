@@ -116,12 +116,12 @@ export const NotificationsIndicator = ({}: Props) => {
         </Button>
       </SheetTrigger>
 
-      <SheetContent className='flex flex-col p-0'>
+      <SheetContent className='flex flex-col gap-0 p-0'>
         <SheetHeader>
           <SheetTitle>Notifications</SheetTitle>
         </SheetHeader>
 
-        <div className='flex h-full flex-col px-4'>
+        <div className='flex grow-0 flex-col overflow-y-auto px-4 pb-4'>
           <div className='scrollbar-hide flex-grow overflow-y-auto'>
             {totalNotifications > 0 ? (
               <div className='grid'>
@@ -167,21 +167,21 @@ export const NotificationsIndicator = ({}: Props) => {
               </div>
             )}
           </div>
-
-          <SheetFooter className='mt-auto py-4'>
-            <SheetClose asChild>
-              <Button
-                variant='outline'
-                type='submit'
-                className='w-full'
-                onClick={handleMarkAllAsRead}
-                disabled={totalNotifications === 0}
-              >
-                Mark all as read
-              </Button>
-            </SheetClose>
-          </SheetFooter>
         </div>
+
+        <SheetFooter className='mt-auto shrink-0 border-t p-4'>
+          <SheetClose asChild>
+            <Button
+              variant='outline'
+              type='submit'
+              className='w-full'
+              onClick={handleMarkAllAsRead}
+              disabled={totalNotifications === 0}
+            >
+              Mark all as read
+            </Button>
+          </SheetClose>
+        </SheetFooter>
       </SheetContent>
     </Sheet>
   )

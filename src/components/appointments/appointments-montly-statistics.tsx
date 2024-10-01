@@ -79,7 +79,7 @@ export const AppointmentsMontlyStatistics = ({
             <Bar
               dataKey='count'
               fill='var(--doctrin-blue)'
-              barSize={40}
+              maxBarSize={40}
               radius={8}
             >
               <LabelList

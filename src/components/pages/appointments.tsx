@@ -1,12 +1,17 @@
 'use client'
 
 import { GroupedAppointments, manage } from '@/actions/appointments'
-import { parseAsString, parseAsStringEnum, useQueryStates } from 'nuqs'
+import {
+  parseAsString,
+  parseAsStringEnum,
+  useQueryState,
+  useQueryStates
+} from 'nuqs'
 import { ClerkUserImportantElements } from '@/types/user'
 import { AppointmentCard } from '../appointments/appointment-card'
 import { AppointmentDetailsSheet } from '../appointments/appointment-details-sheet'
 import { toast } from 'sonner'
-import { useState } from 'react'
+import { useState, useTransition } from 'react'
 import {
   AppointmentStatusFilter,
   AppointmentStatusParam
@@ -14,6 +19,7 @@ import {
 import { getEnumValuesLowercase } from '@/lib/utils'
 import { AppointmentStatus } from '@prisma/client'
 import { ErrorComponent } from '../common/error'
+import Loading from '@/app/admin/appointments/loading'
 
 export interface GroupedAppointmentsWithUsers {
   appointments: Array<{
@@ -34,19 +40,18 @@ interface State {
 }
 
 export const Appointments = ({ appointments, canManage }: Props) => {
+  const [loading, startTransition] = useTransition()
+
   const [searchParams, setSearchParams] = useQueryStates(
-    {
-      selected: parseAsString,
-      from: parseAsString,
-      to: parseAsString,
-      status: parseAsStringEnum([
-        ...getEnumValuesLowercase(AppointmentStatus),
-        'all'
-      ])
-        .withDefault('all')
-        .withOptions({ shallow: false })
-    },
+    { selected: parseAsString },
     { clearOnDefault: true }
+  )
+
+  const [status, setStatus] = useQueryState(
+    'status',
+    parseAsStringEnum([...getEnumValuesLowercase(AppointmentStatus), 'all'])
+      .withDefault('all')
+      .withOptions({ shallow: false, startTransition, clearOnDefault: true })
   )
 
   const [state, setState] = useState<State>({})
@@ -85,10 +90,7 @@ export const Appointments = ({ appointments, canManage }: Props) => {
   }
 
   const onSelectedFilterChange = (value: AppointmentStatusParam) => {
-    setSearchParams(prev => ({
-      ...prev,
-      status: value as (typeof searchParams)['status']
-    }))
+    setStatus(value as typeof status)
   }
 
   const selectedAppointment = searchParams.selected
@@ -103,7 +105,9 @@ export const Appointments = ({ appointments, canManage }: Props) => {
         )
     : undefined
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <>
       <div className='flex flex-col justify-between gap-5 md:flex-row md:items-center'>
         <h1>Appointments</h1>
@@ -111,7 +115,7 @@ export const Appointments = ({ appointments, canManage }: Props) => {
         <div>
           <AppointmentStatusFilter
             onChange={onSelectedFilterChange}
-            current={searchParams.status}
+            current={status}
           />
         </div>
       </div>
@@ -123,7 +127,7 @@ export const Appointments = ({ appointments, canManage }: Props) => {
               <ErrorComponent
                 title='Any appointment found.'
                 description={
-                  searchParams.status
+                  status
                     ? 'Any appointment which satisfies your criterias have been found !'
                     : "You don't have any appointment yet !"
                 }
@@ -133,7 +137,7 @@ export const Appointments = ({ appointments, canManage }: Props) => {
               <ErrorComponent
                 title='Any appointment found.'
                 description={
-                  searchParams.status
+                  status
                     ? 'Any appointment which satisfies your criterias have been found !'
                     : "You don't have any appointment yet !"
                 }
@@ -177,6 +181,7 @@ export const Appointments = ({ appointments, canManage }: Props) => {
           onManage={onAppointmentManage}
           isManaging={state.isManaging}
           managingAppointment={state.managingAppointment}
+          canManage={canManage}
         />
       )}
     </>
