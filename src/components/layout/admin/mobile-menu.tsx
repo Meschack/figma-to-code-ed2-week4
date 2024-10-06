@@ -11,10 +11,9 @@ import {
 } from '@/components/ui/sheet'
 import { SidebarLinksList } from './sidebar-links-list'
 import { useState } from 'react'
+import Link from 'next/link'
 
-interface Props {}
-
-export const MobileMenu = ({}: Props) => {
+export const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggle = (value: boolean) => setIsOpen(value)
@@ -33,8 +32,12 @@ export const MobileMenu = ({}: Props) => {
       </SheetTrigger>
 
       <SheetContent side='left' className='flex flex-col gap-5 px-0'>
-        <SheetHeader className='px-4'>
-          <SheetTitle>Menu</SheetTitle>
+        <SheetHeader className=''>
+          <SheetTitle>
+            <Link href='/'>
+              <Icons.logo />
+            </Link>
+          </SheetTitle>
         </SheetHeader>
 
         <SidebarLinksList onLinkClick={() => toggle(false)} className='px-4' />

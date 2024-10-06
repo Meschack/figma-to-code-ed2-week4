@@ -10,17 +10,19 @@ import { Button, buttonVariants } from '../common/button'
 import { cn } from '@/lib/utils'
 import { Skeleton } from '../ui/skeleton'
 import { ToggleGroup, ToggleGroupItem } from '../ui/toggle-group'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle
-} from '../ui/dialog'
 import { LoadingButton } from '../common/loading-button'
 import { create } from '@/actions/appointments'
 import { toast } from 'sonner'
+import {
+  Credenza,
+  CredenzaBody,
+  CredenzaContent,
+  CredenzaDescription,
+  CredenzaFooter,
+  CredenzaHeader,
+  CredenzaTitle
+} from '../ui/credenza'
+import { Input } from '../ui/input'
 
 interface Props {
   date?: Date
@@ -142,8 +144,6 @@ export const Booking = ({ date, appointmentTypes, slots, user }: Props) => {
       date: formatDate(value, 'yyyy-MM-dd')
     }))
   }
-
-  console.log({ slot: state.chosenSlot })
 
   return (
     <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
@@ -274,41 +274,43 @@ const AppointmentReasonDialog = ({
   const inputRef = useRef<HTMLInputElement>(null)
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Why do you want to book an appointment?</DialogTitle>
-
-          <DialogDescription>
+    <Credenza open={open} onOpenChange={onOpenChange}>
+      <CredenzaContent>
+        <CredenzaHeader>
+          <CredenzaTitle>Why do you want to book an appointment?</CredenzaTitle>
+          <CredenzaDescription>
             Enter the reason for your appointment booking.
-          </DialogDescription>
-        </DialogHeader>
+          </CredenzaDescription>
+        </CredenzaHeader>
 
-        <div className='grid gap-4'>
-          <form className='grid gap-2'>
-            <label htmlFor='reason'>Reason</label>
-            <input
-              id='reason'
-              className='flex h-10 w-full rounded-none border border-muted-foreground bg-transparent px-3 py-1 text-sm transition-colors file:border-0 placeholder:text-muted-foreground focus-visible:outline-none'
-              ref={inputRef}
-            />
+        <CredenzaBody className='space-y-4 pb-4 text-sm sm:pb-0'>
+          <div className='grid gap-4'>
+            <form className='grid gap-2'>
+              <label htmlFor='reason'>Reason</label>
 
-            <DialogFooter>
-              <LoadingButton
-                onClick={() =>
-                  onSubmit(
-                    inputRef.current !== null ? inputRef.current.value : ''
-                  )
-                }
-                loading={loading}
-                type='submit'
-              >
-                Continue
-              </LoadingButton>
-            </DialogFooter>
-          </form>
-        </div>
-      </DialogContent>
-    </Dialog>
+              <Input
+                id='reason'
+                className='rounded-none border-muted-foreground'
+                ref={inputRef}
+              />
+
+              <CredenzaFooter className='px-0'>
+                <LoadingButton
+                  onClick={() =>
+                    onSubmit(
+                      inputRef.current !== null ? inputRef.current.value : ''
+                    )
+                  }
+                  loading={loading}
+                  type='submit'
+                >
+                  Continue
+                </LoadingButton>
+              </CredenzaFooter>
+            </form>
+          </div>
+        </CredenzaBody>
+      </CredenzaContent>
+    </Credenza>
   )
 }
