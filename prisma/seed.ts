@@ -109,10 +109,8 @@ export const main = async () => {
   await generateAppointmentTypes()
 
   // Remplacez ces IDs par de vrais IDs Clerk de patients
-
-  const patientClerkIds = ['clerk_id_1', 'clerk_id_2', 'clerk_id_3']
-
-  await generateAppointments(patientClerkIds)
+  /*   const patientClerkIds = ['clerk_id_1', 'clerk_id_2', 'clerk_id_3']
+  await generateAppointments(patientClerkIds) */
 }
 
 main()
